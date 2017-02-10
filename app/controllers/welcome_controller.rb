@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
-
   def home
-    render html: '<div> hi</div>'.html_safe
+  end
+
+  def about
   end
 end
