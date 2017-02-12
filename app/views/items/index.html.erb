@@ -1,22 +1,23 @@
-<h1></h1>
+<p id="notice"><%= notice %></p>
 
-<div class="alert alert-info">Hello eliza</div>
+<h1>Items</h1>
+
 <table class="table">
   <thead>
-  <tr>
-    <th></th>
-    <th>Price</th>
-    <th>Brand</th>
-    <th>Manufacturer</th>
-    <th>Description</th>
-    <th>Replaced by</th>
-    <th>Replaced</th>
-    <th colspan="3"></th>
-  </tr>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Brand</th>
+      <th>Manufacturer</th>
+      <th>Description</th>
+      <th>Replaced by</th>
+      <th>Replaced</th>
+      <th colspan="3"></th>
+    </tr>
   </thead>
 
   <tbody>
-  <% @items.each do |item| %>
+    <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
         <td><%= item.price %></td>
@@ -29,7 +30,10 @@
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-  <% end %>
+    <% end %>
   </tbody>
 </table>
-<p>Find me in app/views/welcome/home.html.erb</p>
+
+<br>
+
+<%= link_to 'New Item', new_item_path %>
