@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'purchase/index'
+
+  get 'purchase/show'
+
+  get 'purchase/edit'
+
   resources :items
   # specific to welcome
   get 'welcome/home'
@@ -9,6 +15,12 @@ Rails.application.routes.draw do
   root to: 'welcome#home'
 
   resources :items do
+    member do
+      get :delete
+    end
+  end
+
+  resources :purchases do
     member do
       get :delete
     end

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @purchase.store %>
+</p>
+
+<p>
+  <strong>Purchasedate:</strong>
+  <%= @purchase.purchaseDate %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @purchase.location %>
+</p>
+
+<p>
+  <strong>Deleted:</strong>
+  <%= @purchase.deleted %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>

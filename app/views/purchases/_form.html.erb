@@ -1,0 +1,48 @@
+<%= form_for(purchase) do |f| %>
+  <% if purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+
+      <ul>
+      <% purchase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :store %>
+    <%= f.text_field :store %>
+  </div>
+
+  <div class="field">
+    <%= f.label :purchaseDate %>
+    <%= f.datetime_select :purchaseDate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :deleted %>
+    <%= f.check_box :deleted %>
+  </div>
+
+    <% @items.each do |item| %>
+        <div class="field">
+          <%= f.label "#{item.name} - #{item.brand}" %>
+          <%= f.check_box :items, :value => item.id %><br />
+
+          <!--f.check_box :items, :value => item.name -->
+
+        </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>

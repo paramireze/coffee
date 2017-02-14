@@ -8,6 +8,7 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
+.idea/*
 /log/*
 /tmp/*
 !/log/.keep
@@ -15,3 +16,7 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+.idea/misc.xml
+
+.idea/workspace.xml
