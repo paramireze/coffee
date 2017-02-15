@@ -21,7 +21,6 @@ class PurchasesController < ApplicationController
   # GET /purchases/1/edit
   def edit
     @items = Item.all
-
   end
 
   # POST /purchases
@@ -29,10 +28,8 @@ class PurchasesController < ApplicationController
   def create
     @purchase = Purchase.new(purchase_params)
 
-    if params[:items]
-      params[:items].each do |k,v|
-        @purchase.items << Item.find(k)
-      end
+    params[:items].each do |k,v|
+      @purchase.items << Item.find(k)
     end
 
     respond_to do |format|
@@ -49,13 +46,6 @@ class PurchasesController < ApplicationController
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
   def update
-
-    if params[:items]
-      params[:items].each do |k,v|
-        @purchase.items << Item.find(k)
-      end
-    end
-
     respond_to do |format|
       if @purchase.update(purchase_params)
         format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.' }
@@ -85,6 +75,6 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:store, :purchaseDate, :location, :deleted, :items)
+      params.require(:purchase).permit(:store, :purchaseDate, :location, :deleted, item_ids: [])
     end
 end
