@@ -31,14 +31,8 @@
     <%= f.check_box :deleted %>
   </div>
 
-    <% @items.each do |item| %>
-        <div class="field">
-          <%= f.label "#{item.name} - #{item.brand}" %>
-          <%= f.check_box :items, :value => item.id %><br />
-
-          <!--f.check_box :items, :value => item.name -->
-
-        </div>
+    <%= f.collection_check_boxes(:item_ids, Item.all, :id, :brand) do |item| %>
+        <div><%= item.label { item.check_box } %> <%= item.text %> </div>
     <% end %>
 
     <div class="actions">
