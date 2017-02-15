@@ -36,11 +36,6 @@ ActiveRecord::Schema.define(version: 20170214214854) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "products_suppliers", id: false, force: :cascade do |t|
-    t.integer "product_id",  null: false
-    t.integer "supplier_id", null: false
-  end
-
   create_table "purchases", force: :cascade do |t|
     t.string   "store"
     t.datetime "purchaseDate"
@@ -54,6 +49,11 @@ ActiveRecord::Schema.define(version: 20170214214854) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.integer "role_id", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
