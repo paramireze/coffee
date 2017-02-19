@@ -25,12 +25,10 @@ class PurchasesController < ApplicationController
 
   # POST /purchases
   # POST /purchases.json
+  
   def create
     @purchase = Purchase.new(purchase_params)
 
-    params[:items].each do |k,v|
-      @purchase.items << Item.find(k)
-    end
 
     respond_to do |format|
       if @purchase.save
@@ -75,6 +73,6 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:store, :purchaseDate, :location, :deleted, item_ids: [])
+      params.require(:purchase).permit(:store, :purchaseDate, :location, :deleted,   item_ids: [])
     end
 end
