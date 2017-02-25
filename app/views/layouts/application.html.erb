@@ -6,12 +6,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'dataTables.bootstrap4', media: 'all' %>
-    <%= javascript_include_tag 'jquery.dataTables', media: 'all' %>
   </head>
 
-  <body>
-    
+  <body style="padding-top: 70px;">
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>
