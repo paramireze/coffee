@@ -16,7 +16,12 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
+  <%= f.collection_radio_buttons(:store_id, Store.all, :id, :name) do |store| %>
+      <div><%= store.label { store.radio_button } %> <%= store.text %> </div>
+  <% end %>
+
+
+    <div class="field">
     <%= f.label :price %>
     <%= f.text_field :price %>
   </div>
@@ -26,20 +31,6 @@
     <%= f.text_field :brand %>
   </div>
 
-  <div class="field">
-    <%= f.label :manufacturer %>
-    <%= f.text_field :manufacturer %>
-  </div>
-
-  <div class="field">
-    <%= f.label :replaced_by %>
-    <%= f.number_field :replaced_by %>
-  </div>
-
-  <div class="field">
-    <%= f.label :replaced %>
-    <%= f.number_field :replaced %>
-  </div>
 
   <div class="actions">
     <%= f.submit %>

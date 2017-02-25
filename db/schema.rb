@@ -25,15 +25,16 @@ ActiveRecord::Schema.define(version: 20170214214854) do
   end
 
   create_table "items", force: :cascade do |t|
+    t.integer  "store_id"
     t.string   "name"
     t.decimal  "price"
     t.string   "brand"
-    t.string   "manufacturer"
     t.string   "description"
     t.integer  "replaced_by"
     t.integer  "replaced"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["store_id"], name: "index_items_on_store_id", using: :btree
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -56,6 +57,16 @@ ActiveRecord::Schema.define(version: 20170214214854) do
     t.integer "user_id", null: false
   end
 
+  create_table "stores", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.string   "description"
+    t.integer  "replaced_by"
+    t.integer  "replaced"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      limit: 25
     t.string   "last_name",       limit: 50
@@ -69,4 +80,5 @@ ActiveRecord::Schema.define(version: 20170214214854) do
 
   add_foreign_key "item_purchases", "items"
   add_foreign_key "item_purchases", "purchases"
+  add_foreign_key "items", "stores"
 end

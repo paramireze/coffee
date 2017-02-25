@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :stores
   get 'purchase/index'
   get 'purchase/show'
   get 'purchase/edit'
