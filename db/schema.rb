@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 20170214214854) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "item_purchases", force: :cascade do |t|
-    t.integer  "purchase_id"
-    t.integer  "item_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["item_id"], name: "index_item_purchases_on_item_id", using: :btree
-    t.index ["purchase_id"], name: "index_item_purchases_on_purchase_id", using: :btree
-  end
-
   create_table "items", force: :cascade do |t|
     t.integer  "store_id"
     t.string   "name"
@@ -38,12 +29,13 @@ ActiveRecord::Schema.define(version: 20170214214854) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.string   "store"
+    t.integer  "item_id"
     t.datetime "purchaseDate"
     t.string   "location"
     t.boolean  "deleted"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["item_id"], name: "index_purchases_on_item_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
@@ -78,7 +70,5 @@ ActiveRecord::Schema.define(version: 20170214214854) do
     t.datetime "updated_at",                  null: false
   end
 
-  add_foreign_key "item_purchases", "items"
-  add_foreign_key "item_purchases", "purchases"
-  add_foreign_key "items", "stores"
+  add_foreign_key "purchases", "items"
 end

@@ -28,14 +28,16 @@ bryan.save
 arseny.save
 elizabeth.save
 
+Store.delete_all
 evp = Store.create(name: 'EVP', location: 'VA Hospital', description: 'They have the stuff that makes me go WEEEE')
 cargo_coffee = Store.create(name: 'Cargo Coffee', location: 'East Washington', description: 'This is just an example')
 
+Item.delete_all
 tanzanian_peaberry = Item.create(name: 'Coffee', store_id: evp.id, brand: 'Tanzanian Peaberry', price:15.00, description: 'A high-octane light roast much sought after by our customers. Grown on the slopes of Mount Kilimanjaro, this coffee is sweetly acidic with wonderful aroma. Wine and fruit overtones.')
-kenyan = Item.create(name: 'Coffee', store_id: cargo_coffee.id, brand: 'Kenyan', price:15.00, description: 'Viewed by many in the coffee industry as the perfect cup. A beautifully balanced dark roast coffee with depth & interesting complexity.')
- costa_rican = Item.create(name: 'Coffee', store_id: evp.id, brand: 'Costa Rican', price:15.00, description: 'A medium roast that is bright and pleasantly complex, with a light and fruity finish.')
- peruvian = Item.create(name: 'Coffee', store_id: cargo_coffee.id, brand: 'Peruvian', price:15.00, description: 'A medium roast that has a nice balance in flavors. Smooth, dry finish with a hint of cinnamon.')
+# kenyan = Item.create(name: 'Coffee', store: cargo_coffee, brand: 'Kenyan', price:15.00, description: 'Viewed by many in the coffee industry as the perfect cup. A beautifully balanced dark roast coffee with depth & interesting complexity.')
+#  costa_rican = Item.create(name: 'Coffee', store_id: evp.id, brand: 'Costa Rican', price:15.00, description: 'A medium roast that is bright and pleasantly complex, with a light and fruity finish.')
+#  peruvian = Item.create(name: 'Coffee', store_id: cargo_coffee.id, brand: 'Peruvian', price:15.00, description: 'A medium roast that has a nice balance in flavors. Smooth, dry finish with a hint of cinnamon.')
 
-bryanPurchase = Purchase.create(location: 'VA Hospital', purchaseDate: DateTime.now)
+Purchase.delete_all
+#bryanPurchase = Purchase.create(item_id: peruvian, location: 'VA Hospital', purchaseDate: DateTime.now)
 
-ItemPurchase.create(purchase_id: bryanPurchase, item_id: tanzanian_peaberry)
