@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Store:</strong>
-  <%= @purchase.store %>
+  <strong>store:</strong>
+  <%= @purchase.item.store.name %>
+</p>
+<p>
+  <strong>brand:</strong>
+  <%= @purchase.item.brand %>
 </p>
 
 <p>

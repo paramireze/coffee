@@ -17,18 +17,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
-
-  <div class="field">
     <%= f.label :deleted %>
     <%= f.check_box :deleted %>
   </div>
 
-    <%= f.collection_check_boxes(:item_ids, Item.all, :id, :brand) do |item| %>
-        <div><%= item.label { item.check_box } %> <%= item.text %> </div>
-    <% end %>
+    <%= f.collection_select(:item_id, Item.all, :id, :price_with_store_with_brand) %>
+
 
     <div class="actions">
       <%= f.submit %>
