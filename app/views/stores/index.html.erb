@@ -1,45 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Stores</h1>
+<% @stores.each do |store| %>
+  <h2><%= store.name %></h2>
+  <hr />
+  <div>
+    <%= link_to 'Show', store, { class: 'btn btn-primary'} %>
+    <%= link_to 'Edit Store', edit_store_path(store), { class: 'btn btn-primary'} %>
+  </div>
+  <hr />
+  <div>Location: <%= store.location %></div>
+  <div>Description: <%= store.description %></div>
 
-    <% @stores.each do |store| %>
-      <div>
-        <%= link_to 'Show', store %>
-        <%= link_to 'Edit', edit_store_path(store) %>
-        <%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-
-      <h2><%= store.name %></h2>
-      <div>Location: <%= store.location %></div>
-      <div>Description: <%= store.description %></div>
-
-    <table class="table">
-      <thead>
+  <table class="table">
+    <thead>
       <tr>
         <th>Price</th>
         <th>Brand</th>
         <th>Description</th>
         <th></th>
       </tr>
-      </thead>
+    </thead>
+    <tbody>
+    <% store.items.each do |item| %>
+        <td><%= item.price_field %></td>
+        <td><%= item.brand %></td>
+        <td><%= item.description %></td>
+        <td><%= link_to 'Show', item %><br />
+          <%= link_to 'Edit', edit_item_path(item) %><br />
+          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
 
-      <tbody>
-      <% store.items.each do |item| %>
-
-          <td><%= item.price %></td>
-          <td><%= item.brand %></td>
-          <td><%= item.description %></td>
-          <td><%= link_to 'Show', item %><br />
-            <%= link_to 'Edit', edit_item_path(item) %><br />
-            <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </td>
-
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-
-    <hr />
+        </tr>
     <% end %>
+    </tbody>
+  </table>
+
+  <hr />
+<% end %>
 <br>
 
 <%= link_to 'New Store', new_store_path %>

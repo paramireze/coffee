@@ -1,34 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
+<h2><%= @item.brand %></h2>
+<hr />
+<dl class="row">
+  <dt class="col-sm-3">Price:</dt>
+  <dd class="col-sm-9"><%= @item.price_field %></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-3">Description:</dt>
+  <dd class="col-sm-9"><%= @item.description %></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-3">Replaced by:</dt>
+  <dd class="col-sm-9"><%= @item.replaced_by %></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-3">Replaced:</dt>
+  <dd class="col-sm-9"><%= @item.replaced %></dd>
+</dl>
 
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
-
-<p>
-  <strong>Brand:</strong>
-  <%= @item.brand %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
-
-<p>
-  <strong>Replaced by:</strong>
-  <%= @item.replaced_by %>
-</p>
-
-<p>
-  <strong>Replaced:</strong>
-  <%= @item.replaced %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<%= link_to 'Edit', edit_item_path(@item), class: "btn btn-primary" %>
+<%= link_to 'Back', items_path, class: "btn btn-primary" %>

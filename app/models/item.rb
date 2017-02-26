@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_one :purchase
+  has_many :purchase
   belongs_to :store
 
   def price_field
