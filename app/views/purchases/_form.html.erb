@@ -21,8 +21,8 @@
     <%= f.check_box :deleted %>
   </div>
 
-    <%= f.collection_select(:item_id, Item.all, :id, :price_with_store_with_brand) %>
-
+    <%= f.collection_select(:item_id, Item.all, :id, :price_with_store_with_brand) %><br />
+    <%= f.collection_check_boxes(:buyer_ids, User.all, :id, :name) %>
 
     <div class="actions">
       <%= f.submit %>

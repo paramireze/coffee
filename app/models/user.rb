@@ -3,6 +3,8 @@ class User < ApplicationRecord
   #use bcrypt to secure our password
   has_secure_password
 
+  has_many :buyers
+  has_many :purchases, through: :buyers
 
   has_and_belongs_to_many :roles
 
