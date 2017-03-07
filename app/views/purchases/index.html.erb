@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Purchases</h1>
 
 <table class="table">
@@ -29,7 +27,7 @@
       <td><%= purchase.item.price_field %></td>
         <td><%= purchase.item.store.name %></td>
         <td><%= purchase.item.store.location %></td>
-        <td><%= purchase.purchase_date %></td>
+        <td><%= purchase.purchase_date.to_s(:custom_datetime) %></td>
         <td>
           <%= link_to 'Show', purchase %><br />
           <%= link_to 'Edit', edit_purchase_path(purchase) %><br />
