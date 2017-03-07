@@ -23,7 +23,7 @@
 
     <%= f.collection_select(:item_id, Item.all, :id, :price_with_store_with_brand) %><br />
     <%= f.collection_check_boxes(:user_ids, User.all, :id, :name) do |user|%>
-      <%= user.label { user.check_box + user.text + '<br />/r/n'}  %>
+      <%= user.label { user.check_box + user.text }  %><br />
     <%  end %>
     <div class="actions">
       <%= f.submit %>
