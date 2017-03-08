@@ -8,9 +8,12 @@
     <ul class="navbar-nav mr-auto">
       <%= render 'layouts/navigation_links' %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <div class="form-inline my-2 my-lg-0">
+      <% if session[:user_id] != nil %>
+          <%= link_to("Logout", access_logout_path, class: 'nav-link') %>
+      <% else %>
+          <%= link_to("login", access_login_path, class: 'nav-link') %>
+      <% end %>
+    </div>
   </div>
 </nav>

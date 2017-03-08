@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def is_admin
-    admin = Role.find_by_name('Admin')
+    admin = Role.find_by_name('admin')
     admin ? has_role(admin.name) : false
   end
 
