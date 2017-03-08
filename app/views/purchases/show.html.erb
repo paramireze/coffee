@@ -1,26 +1,28 @@
-<p>
-  <strong>store:</strong>
-  <%= @purchase.item.store.name %>
-</p>
-<p>
-  <strong>brand:</strong>
-  <%= @purchase.item.brand %>
-</p>
+<dl class="row">
+  <dt class="col-sm-3">store:</dt>
+  <dd class="col-sm-9"><%= @purchase.item.store.name %></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-3">item:</dt>
+  <dd class="col-sm-9"><%= @purchase.item.name %></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-3">brand:</dt>
+  <dd class="col-sm-9"><%= @purchase.item.brand %></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-3">Purchase_date:</dt>
+  <dd class="col-sm-9"><%= @purchase.purchase_date %></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-3">Location:</dt>
+  <dd class="col-sm-9"><%= @purchase.location %></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-3">Deleted:</dt>
+  <dd class="col-sm-9"><%= @purchase.deleted %></dd>
+</dl>
 
-<p>
-  <strong>Purchase_date:</strong>
-  <%= @purchase.purchase_date %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @purchase.location %>
-</p>
-
-<p>
-  <strong>Deleted:</strong>
-  <%= @purchase.deleted %>
-</p>
 
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>

@@ -1,6 +1,7 @@
 <h1>Editing Purchase</h1>
+<hr />
+<%= link_to '<- Show All Purchases', purchases_path, class: "" %>
+<hr />
 
 <%= render 'form', purchase: @purchase %>
 
-<%= link_to 'Show', @purchase %> |
-<%= link_to 'Back', purchases_path %>

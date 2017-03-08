@@ -11,22 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :purchase_date %>
-    <%= f.datetime_select :purchase_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :deleted %>
-    <%= f.check_box :deleted %>
-  </div>
-
-    <%= f.collection_select(:item_id, Item.all, :id, :price_with_store_with_brand) %><br />
-    <%= f.collection_check_boxes(:user_ids, User.all, :id, :name) do |user|%>
-      <%= user.label { user.check_box + user.text }  %><br />
-    <%  end %>
-    <div class="actions">
-      <%= f.submit %>
+  <div class="form-group row">
+    <%= f.label :purchase_date, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.datetime_select :purchase_date, class: "form-control" %>
     </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Item</label>
+    <div class="col-sm-10">
+      <%= f.collection_select(:item_id, Item.all, :id, :price_with_store_with_brand, class: 'form-control') %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Buyers</label>
+    <div class="col-sm-10">
+      <%= f.collection_check_boxes(:user_ids, User.all, :id, :name, class: 'form-control') do |user|%>
+          <%= user.label { user.check_box + ' ' + user.text }  %><br />
+      <%  end %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :deleted, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.check_box :deleted, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="actions form-group row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
 
 <% end %>
