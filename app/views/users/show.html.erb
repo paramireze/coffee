@@ -1,24 +1,39 @@
 <p id="notice"><%= notice %></p>
+<h2><%= @user.name %></h2>
+<hr />
+<dl class="row">
+  <dt class="col-sm-3">Email:</dt>
+  <dd class="col-sm-9"><%= @user.email %></dd>
+</dl>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+<dl class="row">
+  <dt class="col-sm-3">Username:</dt>
+  <dd class="col-sm-9"><%= @user.username %></dd>
+</dl>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<h2>User Purchase History</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>purchase date</th>
+      <th>item name</th>
+      <th>item brand</th>
+      <th>amount paid</th>
+      <th>store</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @purchases.each do |purchase| %>
+    <tr>
+      <td><%= purchase.purchase_date.to_s(:custom_datetime) %></td>
+      <td><%= purchase.item.name %></td>
+      <td><%= purchase.item.brand %></td>
+      <td><%= purchase.item.price_field %></td>
+      <td><%= purchase.item.store.name %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
