@@ -24,16 +24,23 @@ ActiveRecord::Schema.define(version: 20170307060030) do
     t.index ["user_id"], name: "index_buyers_on_user_id", using: :btree
   end
 
+  create_table "item_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.integer  "store_id"
-    t.string   "name"
+    t.integer  "item_type_id"
     t.decimal  "price"
     t.string   "brand"
     t.string   "description"
     t.integer  "replaced_by"
     t.integer  "replaced"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["item_type_id"], name: "index_items_on_item_type_id", using: :btree
     t.index ["store_id"], name: "index_items_on_store_id", using: :btree
   end
 

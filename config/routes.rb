@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :item_types
   resources :stores
   get 'purchase/index'
   get 'purchase/show'

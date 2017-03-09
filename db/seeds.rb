@@ -45,16 +45,22 @@ our intention since we opened has been to serve all people beautifully, and in t
 at evp, we believe the spirit in which we serve is as important was what we serve. we see that kindness and love are lacking in this world, and our intention is to create a work culture & business that emphasize these ideals.')
 barriques = Store.create(name: 'barriques', location: 'madison', description: 'regardless of origin, region, certification or affiliation, every coffee we source has to meet our exacting quality standards first. we distinguish ourselves with a focus on freshness and approachable quality. our belief is that everyone should have access to great coffee and our 6 thriving cafes in the madison area owe a large part of their success to the uncompromising view that our customers deserve the best quality for the dollar. we bring this same commitment and enthusiasm to our wholesale clients.')
 
+ActiveRecord::Base.connection.reset_pk_sequence!('ItemType')
+ItemType.delete_all
+
+coffee = ItemType.create(name: 'Coffee')
+
+
 ActiveRecord::Base.connection.reset_pk_sequence!('Item')
 Item.delete_all
-tanzanian_peaberry = Item.create(name: 'coffee', store: evp, brand: 'tanzanian peaberry', price:15.00, description: 'a high-octane light roast much sought after by our customers. grown on the slopes of mount kilimanjaro, this coffee is sweetly acidic with wonderful aroma. wine and fruit overtones.')
- kenyan = Item.create(name: 'coffee', store: evp, brand: 'kenyan', price:15.00, description: 'viewed by many in the coffee industry as the perfect cup. a beautifully balanced dark roast coffee with depth & interesting complexity.')
-  costa_rican = Item.create(name: 'coffee', store: evp, brand: 'costa rican', price:15.00, description: 'a medium roast that is bright and pleasantly complex, with a light and fruity finish.')
-  peruvian = Item.create(name: 'coffee', store: evp, brand: 'peruvian', price:15.00, description: 'a medium roast that has a nice balance in flavors. smooth, dry finish with a hint of cinnamon.')
+tanzanian_peaberry = Item.create(item_type: coffee, store: evp, brand: 'tanzanian peaberry', price:15.00, description: 'a high-octane light roast much sought after by our customers. grown on the slopes of mount kilimanjaro, this coffee is sweetly acidic with wonderful aroma. wine and fruit overtones.')
+ #kenyan = Item.create(itemType: coffee, store: evp, brand: 'kenyan', price:15.00, description: 'viewed by many in the coffee industry as the perfect cup. a beautifully balanced dark roast coffee with depth & interesting complexity.')
+  #costa_rican = Item.create(itemType: coffee, store: evp, brand: 'costa rican', price:15.00, description: 'a medium roast that is bright and pleasantly complex, with a light and fruity finish.')
+  #peruvian = Item.create(itemType: coffee, store: evp, brand: 'peruvian', price:15.00, description: 'a medium roast that has a nice balance in flavors. smooth, dry finish with a hint of cinnamon.')
 
-  ethiopia_yrgacheffe = Item.create(name: 'coffee', store: barriques, brand: 'yrgacheffe ethopian', price:14.50, description: 'yrgacheffe, ethiopia’s most prized coffee, is used to celebrate ethiopian life’s biggest moments. prepared from the highest-grown beans grown in the southern mountains along the great rift, yrgacheffe coffees are organically grown, painstakingly hand-picked, fully sun dried and immaculately prepared by washed processing. ')
-  nyeri_othaya_peaberry = Item.create(name: 'coffee', store: barriques, brand: 'nyeri othaya peaberry kenyan', price:14.50, description: 'a winy, full-bodied and very intense coffee with exceptional bright, clean aroma.')
-  monte_crisol = Item.create(name: 'coffee', store: barriques, brand: 'tarrazu monte crisol costa rica', price:14.50, description: 'tarrazu is costa rica\'s best known specialty coffee region.  it is south of the capital of san jose in the mountains surrounding  poas volcano.  the humid climate, high altitude 4500 – 7000 ft, and rich volcanic soil contribute to produce coffee with such distinctive "taste of place" that the tarrazu name and area is legally protected, just like a wine appellation.')
+  #ethiopia_yrgacheffe = Item.create(name: 'coffee', store: barriques, brand: 'yrgacheffe ethopian', price:14.50, description: 'yrgacheffe, ethiopia’s most prized coffee, is used to celebrate ethiopian life’s biggest moments. prepared from the highest-grown beans grown in the southern mountains along the great rift, yrgacheffe coffees are organically grown, painstakingly hand-picked, fully sun dried and immaculately prepared by washed processing. ')
+  #nyeri_othaya_peaberry = Item.create(name: 'coffee', store: barriques, brand: 'nyeri othaya peaberry kenyan', price:14.50, description: 'a winy, full-bodied and very intense coffee with exceptional bright, clean aroma.')
+  #monte_crisol = Item.create(name: 'coffee', store: barriques, brand: 'tarrazu monte crisol costa rica', price:14.50, description: 'tarrazu is costa rica\'s best known specialty coffee region.  it is south of the capital of san jose in the mountains surrounding  poas volcano.  the humid climate, high altitude 4500 – 7000 ft, and rich volcanic soil contribute to produce coffee with such distinctive "taste of place" that the tarrazu name and area is legally protected, just like a wine appellation.')
 
 
 

@@ -5,12 +5,36 @@
 <% @items.each do |item| %>
 
     <h2><%= item.brand %></h2>
-    <div>Price: <%= item.price_field %></div>
-    <div>Store: <%= item.store.name %></div>
-    <div>Location: <%= item.store.location %></div>
-    <div><%= item.description %></div>
-    <div><%= item.replaced_by %></div>
-    <div><%= item.replaced %></div>
+    <hr />
+    <dl class="row">
+      <dt class="col-sm-2">Item Type:</dt>
+      <dd class="col-sm-10"><%= item.item_type.name %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-2">Price:</dt>
+      <dd class="col-sm-10"><%= item.price_field %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-2">Store:</dt>
+      <dd class="col-sm-10"><%= item.store.name %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-2">Location:</dt>
+      <dd class="col-sm-10"><%= item.store.location %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-2">Description:</dt>
+      <dd class="col-sm-10"><%= item.description %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-2">Replaced By:</dt>
+      <dd class="col-sm-10"><%= item.replaced_by %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-2">Replaced:</dt>
+      <dd class="col-sm-10"><%= item.replaced %></dd>
+    </dl>
+
     <div><%= link_to 'Show', item %>
         <%= link_to 'Edit', edit_item_path(item) %>
         <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>

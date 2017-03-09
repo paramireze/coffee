@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   has_many :purchase
+  belongs_to :item_type
   belongs_to :store
+
 
   def price_field
     helper.number_to_currency(price, :precision => 2)
