@@ -72,6 +72,6 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:purchase_ate, :location, :deleted, :item_id, user_ids: [])
+      params.require(:purchase).permit(:purchase_date, :location, :deleted, :item_id, user_ids: [])
     end
 end
