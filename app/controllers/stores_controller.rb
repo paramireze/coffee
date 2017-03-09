@@ -1,5 +1,8 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in, :except => [:index, :show]
+
+  before_action :admin_only, :except => [:index, :show]
 
   # GET /stores
   # GET /stores.json

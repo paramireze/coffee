@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  before_action :admin_only, :only => [:edit, :new, :create]
+  before_action :confirm_logged_in, :except => [:index, :show]
+
+  before_action :admin_only, :except => [:index, :show]
 
   # GET /items
   # GET /items.json

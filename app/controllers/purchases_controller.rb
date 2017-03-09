@@ -1,4 +1,9 @@
 class PurchasesController < ApplicationController
+
+  before_action :confirm_logged_in, :except => [:index, :show]
+
+  before_action :admin_only, :except => [:index, :show]
+
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
 
   # GET /purchases
