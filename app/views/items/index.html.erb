@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<h1>All Items</h1>
+<%= link_to 'New Item', new_item_path, class: 'btn btn-primary' %>
+<hr />
 <% @items.each do |item| %>
 
     <h2><%= item.brand %></h2>
