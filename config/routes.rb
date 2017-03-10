@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :item_types
   resources :stores
   get 'purchase/index'
   get 'purchase/show'
@@ -13,6 +12,12 @@ Rails.application.routes.draw do
   get  'access/logout'
 
   resources :users do
+    member do
+      get :delete
+    end
+  end
+
+  resources :item_types do
     member do
       get :delete
     end
