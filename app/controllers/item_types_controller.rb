@@ -1,5 +1,7 @@
 class ItemTypesController < ApplicationController
   before_action :set_item_type, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in, :except => [:index, :show]
+  before_action :admin_only, :except => [:index, :show]
 
   # GET /item_types
   # GET /item_types.json
