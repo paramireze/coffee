@@ -18,7 +18,7 @@
   <tbody>
     <% @purchases.each do |purchase| %>
       <tr>
-        <td><%= purchase.item.name %></td>
+        <td><%= purchase.item.item_type.name %></td>
         <td><%= purchase.item.brand %></td>
         <td>
         <% purchase.buyers.each do |buyer| %>
