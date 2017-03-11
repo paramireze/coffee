@@ -1,10 +1,16 @@
 <p id="notice"><%= notice %></p>
-<h1>All Items</h1>
+<h1>Listed Items</h1>
 <%= link_to 'New Item', new_item_path, class: 'btn btn-primary' %>
 <hr />
 <% @items.each do |item| %>
 
     <h2><%= item.brand %></h2>
+    <div>
+      <%= link_to 'Show', item, { class: 'btn btn-primary'} %>
+      <%= link_to 'Edit This Item', item_path(item), { class: 'btn btn-primary'} %>
+    </div>
+    <hr />
+    <p><%= item.description %></p>
     <hr />
     <dl class="row">
       <dt class="col-sm-2">Item Type:</dt>
@@ -23,14 +29,12 @@
       <dd class="col-sm-10"><%= item.store.location %></dd>
     </dl>
     <dl class="row">
-      <dt class="col-sm-2">Description:</dt>
-      <dd class="col-sm-10"><%= item.description %></dd>
+      <dt class="col-sm-2"># of times purchased:</dt>
+      <dd class="col-sm-10"><%= item.purchase.count %></dd>
     </dl>
-    <div><%= link_to 'Show', item %>
-        <%= link_to 'Edit', edit_item_path(item) %>
-        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
 
+<!--
+    <h2>Purchases made for this Item</h2>
     <table class="table table-striped">
       <thead>
       <tr>
@@ -60,9 +64,7 @@
       <% end %>
       </tbody>
     </table>
+-->
     <hr />
     <% end %>
-
 <br>
-
-<%= link_to 'New Item', new_item_path %>
