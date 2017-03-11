@@ -1,29 +1,47 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @store.name %>
-</p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @store.location %>
-</p>
+<h1><%= @store.name %></h1>
+<hr />
+<p><%= @store.description %></p>
+<h2>Details</h2>
+<hr />
+<dl class="row">
+  <dt class="col-sm-3">Location:</dt>
+  <dd class="col-sm-9"><%= @store.location %></dd>
+</dl>
 
-<p>
-  <strong>Description:</strong>
-  <%= @store.description %>
-</p>
 
-<p>
-  <strong>Replaced by:</strong>
-  <%= @store.replaced_by %>
-</p>
+<dl class="row">
+  <dt class="col-sm-3"># of Items listed:</dt>
+  <dd class="col-sm-9"><%= @store.items.count %></dd>
+</dl>
+<h2>Store Items</h2>
 
-<p>
-  <strong>Replaced:</strong>
-  <%= @store.replaced %>
-</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Price</th>
+    <th>Brand</th>
+    <th>Description</th>
+    <th>Items List</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @store.items.each do |item| %>
+      <td><%= item.price_field %></td>
+      <td><%= item.brand %></td>
+      <td><%= item.description %></td>
+      <td>
+        <%= link_to 'Show', item %><br />
+        <%= link_to 'Edit', edit_item_path(item) %><br />
+        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_store_path(@store) %> |
 <%= link_to 'Back', stores_path %>
