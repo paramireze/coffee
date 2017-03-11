@@ -37,8 +37,8 @@ class PurchasesController < ApplicationController
 
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
-        format.json { render :show, status: :created, location: @purchase }
+        format.html { redirect_to purchases_url, notice: 'Purchase was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
@@ -52,6 +52,7 @@ class PurchasesController < ApplicationController
     respond_to do |format|
       if @purchase.update(purchase_params)
         format.html { redirect_to purchases_url, notice: 'Purchase was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
