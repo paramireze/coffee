@@ -19,7 +19,7 @@
     <% @purchases.each do |purchase| %>
       <tr>
         <td><%= purchase.item.item_type.name %></td>
-        <td><%= purchase.item.brand %></td>
+        <td><%= link_to purchase.item.brand, purchase.item %></td>
         <td>
         <% purchase.buyers.each do |buyer| %>
         <%= buyer.user.name %><br />
