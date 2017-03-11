@@ -5,18 +5,23 @@
   <h2><%= store.name %></h2>
   <hr />
   <div>
+    <%= link_to 'Show', store, { class: 'btn btn-primary'} %>
     <%= link_to 'Edit This Store', edit_store_path(store), { class: 'btn btn-primary'} %>
   </div>
   <hr />
   <div>Location: <%= store.location %></div>
-  <div># of items: <%= store.items.count %></div>
-  <div># of purchases: <%= store.items.count %></div>
+  <div># of items sold: <%= store.items.count %></div>
+  <div>Total # of purchases:
+    <!-- make me a helper -->
+  <% count = 0 %>
   <% store.items.each do |item| %>
-        <%= item.purchase.count %>,
+        <% count += item.purchase.count %>
   <% end %>
-
+  <%= count %>
+  </div>
   <div>Description: <%= store.description %></div>
 
+<!--
   <table class="table">
     <thead>
       <tr>
@@ -42,6 +47,7 @@
     <% end %>
     </tbody>
   </table>
+-->
 
   <hr />
 <% end %>
