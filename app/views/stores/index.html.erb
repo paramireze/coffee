@@ -9,6 +9,12 @@
   </div>
   <hr />
   <div>Location: <%= store.location %></div>
+  <div># of items: <%= store.items.count %></div>
+  <div># of purchases: <%= store.items.count %></div>
+  <% store.items.each do |item| %>
+        <%= item.purchase.count %>,
+  <% end %>
+
   <div>Description: <%= store.description %></div>
 
   <table class="table">
@@ -17,6 +23,7 @@
         <th>Price</th>
         <th>Brand</th>
         <th>Description</th>
+        <th>Items List</th>
         <th></th>
       </tr>
     </thead>
