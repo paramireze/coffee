@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
 <h2><%= @user.name %></h2>
+<%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-primary' %> |
+<%= link_to 'Show All Users', users_path, class: 'btn btn-primary' %>
+
 <hr />
 <dl class="row">
   <dt class="col-sm-3">Email:</dt>
@@ -10,9 +12,9 @@
   <dt class="col-sm-3">Username:</dt>
   <dd class="col-sm-9"><%= @user.username %></dd>
 </dl>
-
+<hr />
 <h2>User Purchase History</h2>
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>purchase date</th>
@@ -26,7 +28,7 @@
   <% @purchases.each do |purchase| %>
     <tr>
       <td><%= purchase.purchase_date.to_s(:custom_datetime) %></td>
-      <td><%= purchase.item.name %></td>
+      <td><%= purchase.item.item_type.name %></td>
       <td><%= purchase.item.brand %></td>
       <td><%= purchase.item.price_field %></td>
       <td><%= purchase.item.store.name %></td>
@@ -34,6 +36,3 @@
    <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
