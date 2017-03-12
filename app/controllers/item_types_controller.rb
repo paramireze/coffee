@@ -30,8 +30,8 @@ class ItemTypesController < ApplicationController
 
     respond_to do |format|
       if @item_type.save
-        format.html { redirect_to @item_type, notice: 'Item type was successfully created.' }
-        format.json { render :show, status: :created, location: @item_type }
+        format.html { redirect_to item_types_url, notice: 'Item type was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @item_type.errors, status: :unprocessable_entity }
@@ -44,8 +44,8 @@ class ItemTypesController < ApplicationController
   def update
     respond_to do |format|
       if @item_type.update(item_type_params)
-        format.html { redirect_to @item_type, notice: 'Item type was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item_type }
+        format.html { redirect_to item_types_url, notice: 'Item type was successfully updated.' }
+        format.json { head :no_content}
       else
         format.html { render :edit }
         format.json { render json: @item_type.errors, status: :unprocessable_entity }
