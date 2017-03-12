@@ -1,14 +1,20 @@
 
 <h2><%= @item.brand %></h2>
+<%= link_to 'Edit', edit_item_path(@item), class: "btn btn-primary" %>
+<%= link_to 'Back', items_path, class: "btn btn-primary" %>
+<hr />
 <p><%= @item.description %></p>
 <hr />
 <dl class="row">
-  <dt class="col-sm-3">Price:</dt>
-  <dd class="col-sm-9"><%= @item.price_field %></dd>
+  <dt class="col-sm-2">Price:</dt>
+  <dd class="col-sm-10"><%= @item.price_field %></dd>
+</dl>
+<dl class="row">
+  <dt class="col-sm-2">Location:</dt>
+  <dd class="col-sm-10"><%= @item.store.location %></dd>
 </dl>
 
-<%= link_to 'Edit', edit_item_path(@item), class: "btn btn-primary" %>
-<%= link_to 'Back', items_path, class: "btn btn-primary" %>
+
 <hr />
 <h2>Purchases made for this Item</h2>
 <br />
