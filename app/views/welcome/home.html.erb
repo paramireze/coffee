@@ -6,7 +6,6 @@
   <tr>
     <th></th>
     <th>Price</th>
-    <th>Brand</th>
     <th>Description</th>
     <th>Replaced by</th>
     <th>Replaced</th>
@@ -17,7 +16,6 @@
   <tbody>
   <% @items.each do |item| %>
       <tr>
-        <td><%= item.name %></td>
         <td><%= item.price %></td>
         <td><%= item.brand %></td>
         <td><%= item.description %></td>

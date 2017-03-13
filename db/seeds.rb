@@ -24,6 +24,10 @@ Role.delete_all
 user = Role.create(name:'user')
 admin = Role.create(name:'admin')
 
+
+
+
+
 # assign roles
 ActiveRecord::Base.connection.reset_pk_sequence!('RoleUser')
 RoleUser.delete_all
@@ -43,7 +47,7 @@ Store.delete_all
 evp = Store.create(name: 'evp', location: 'va hospital', description: 'evp (etes-vous prets?!) coffee is a local, independent & woman-owned business that opened in october of 1997 on highland avenue in madison, wisconsin.  over 19 years later, evp now has 6 vibrant locations & roasts over 30,000 pounds of coffee each year.
 our intention since we opened has been to serve all people beautifully, and in the spirit of kindness and love.  we aim to serve our community with honesty and accountability & to be stewards of our environment through composting and other initiatives.
 at evp, we believe the spirit in which we serve is as important was what we serve. we see that kindness and love are lacking in this world, and our intention is to create a work culture & business that emphasize these ideals.')
-barriques = Store.create(name: 'barriques', location: 'madison', description: 'regardless of origin, region, certification or affiliation, every coffee we source has to meet our exacting quality standards first. we distinguish ourselves with a focus on freshness and approachable quality. our belief is that everyone should have access to great coffee and our 6 thriving cafes in the madison area owe a large part of their success to the uncompromising view that our customers deserve the best quality for the dollar. we bring this same commitment and enthusiasm to our wholesale clients.')
+#barriques = Store.create(name: 'barriques', location: 'madison', description: 'regardless of origin, region, certification or affiliation, every coffee we source has to meet our exacting quality standards first. we distinguish ourselves with a focus on freshness and approachable quality. our belief is that everyone should have access to great coffee and our 6 thriving cafes in the madison area owe a large part of their success to the uncompromising view that our customers deserve the best quality for the dollar. we bring this same commitment and enthusiasm to our wholesale clients.')
 
 ActiveRecord::Base.connection.reset_pk_sequence!('ItemType')
 ItemType.delete_all
@@ -53,14 +57,13 @@ coffee = ItemType.create(name: 'Coffee')
 
 ActiveRecord::Base.connection.reset_pk_sequence!('Item')
 Item.delete_all
-tanzanian_peaberry = Item.create(item_type: coffee, store: evp, brand: 'tanzanian peaberry', price:15.00, description: 'a high-octane light roast much sought after by our customers. grown on the slopes of mount kilimanjaro, this coffee is sweetly acidic with wonderful aroma. wine and fruit overtones.')
- #kenyan = Item.create(itemType: coffee, store: evp, brand: 'kenyan', price:15.00, description: 'viewed by many in the coffee industry as the perfect cup. a beautifully balanced dark roast coffee with depth & interesting complexity.')
-  #costa_rican = Item.create(itemType: coffee, store: evp, brand: 'costa rican', price:15.00, description: 'a medium roast that is bright and pleasantly complex, with a light and fruity finish.')
-  #peruvian = Item.create(itemType: coffee, store: evp, brand: 'peruvian', price:15.00, description: 'a medium roast that has a nice balance in flavors. smooth, dry finish with a hint of cinnamon.')
+ethopian_sidano = Item.create(item_type: coffee, store: evp, brand: 'Ethopian Sidano', price: 15.00, description: 'Sweet citruis aromatics and pleasing maple syrup-like body. The wild sweet lemon and floral tones round out into a smooth, clean finish.' )
 
-  #ethiopia_yrgacheffe = Item.create(name: 'coffee', store: barriques, brand: 'yrgacheffe ethopian', price:14.50, description: 'yrgacheffe, ethiopia’s most prized coffee, is used to celebrate ethiopian life’s biggest moments. prepared from the highest-grown beans grown in the southern mountains along the great rift, yrgacheffe coffees are organically grown, painstakingly hand-picked, fully sun dried and immaculately prepared by washed processing. ')
-  #nyeri_othaya_peaberry = Item.create(name: 'coffee', store: barriques, brand: 'nyeri othaya peaberry kenyan', price:14.50, description: 'a winy, full-bodied and very intense coffee with exceptional bright, clean aroma.')
-  #monte_crisol = Item.create(name: 'coffee', store: barriques, brand: 'tarrazu monte crisol costa rica', price:14.50, description: 'tarrazu is costa rica\'s best known specialty coffee region.  it is south of the capital of san jose in the mountains surrounding  poas volcano.  the humid climate, high altitude 4500 – 7000 ft, and rich volcanic soil contribute to produce coffee with such distinctive "taste of place" that the tarrazu name and area is legally protected, just like a wine appellation.')
+bryanPurchase = Purchase.create(item: ethopian_sidano, purchase_date: '2017-03-09 13:30:00', location: nil, deleted: 'f' )
+
+buyer = Buyer.create(purchase: bryanPurchase, user: bryan)
+
+
 
 
 
