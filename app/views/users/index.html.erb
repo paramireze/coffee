@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>First name</th>
-      <th>Last name</th>
       <th>Email</th>
       <th>Username</th>
       <th># of <br />Purchases</th>
@@ -18,8 +17,9 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
+
+        <td><%= link_to user.first_name, user %></td>
+
         <td><%= user.email %></td>
         <td><%= user.username %></td>
         <td><%= user.purchases.count %></td>
