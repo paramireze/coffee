@@ -1,43 +1,67 @@
-<h1>Purchases</h1>
-<%= link_to 'New Purchase', new_purchase_path, class: 'btn btn-primary pull-right' %>
+<div class="section">
+  <div class="container">
+    <div class="col-md-12">
+      <h1>Most Recent Purchases</h1>
+      <%= link_to 'New Purchase', new_purchase_path, class: 'btn btn-primary' %>
+      <%= link_to 'See All', new_purchase_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
+<!--display items in separate columns-->
+<!--<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6"></div>
+    </div>
+  </div>
+</div>-->
+<div class="section">
+  <div class="container">
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>item</th>
-      <th>brand</th>
-      <th>buyer</th>
-      <th>price</th>
-      <th>store</th>
-      <th>Location</th>
-      <th>Purchase Date</th>
-      <th></th>
-    </tr>
-  </thead>
+    <% @purchases.each.with_index do |purchase, index| %>
+      <% if index.odd? %>
+        <div class="row">
+      <% end %>
+      <div class="col-md-6">
+        <h2><%= link_to purchase.item.brand, purchase.item %></h2>
+        <dl class="row">
+          <dt class="col-sm-2">Item Type:</dt>
+          <dd class="col-sm-10"><%= purchase.item.item_type.name %></dd>
+        </dl>
+        <dl class="row">
+          <dt class="col-sm-2">Price:</dt>
+          <dd class="col-sm-10"><%= purchase.item.price_field %></dd>
+        </dl>
 
-  <tbody>
-    <% @purchases.each do |purchase| %>
-      <tr>
-        <td><%= purchase.item.item_type.name %></td>
-        <td><%= link_to purchase.item.brand, purchase.item %></td>
-        <td>
-        <% purchase.buyers.each do |buyer| %>
-        <%= buyer.user.name %><br />
-        <% end %>
-        </td>
-      <td><%= purchase.item.price_field %></td>
-        <td><%= purchase.item.store.name %></td>
-        <td><%= purchase.item.store.location %></td>
-        <td><%= purchase.purchase_date.to_s(:custom_datetime) %></td>
-        <td>
-          <%= link_to 'Show', purchase %><br />
-          <%= link_to 'Edit', edit_purchase_path(purchase) %><br />
-          <%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+        <dl class="row">
+          <dt class="col-sm-2">Buyers:</dt>
+          <dd class="col-sm-10">
+            <% purchase.buyers.each do |buyer| %>
+                <%= buyer.user.name %><br />
+            <% end %>
+          </dd>
+        </dl>
+        <dl class="row">
+          <dt class="col-sm-2">Location:</dt>
+          <dd class="col-sm-10"><%= purchase.item.store.location %></dd>
+        </dl>
+        <dl class="row">
+          <dt class="col-sm-2">Purchase Date:</dt>
+          <dd class="col-sm-10"><%= purchase.purchase_date.to_s(:custom_datetime) %></dd>
+        </dl>
+        <div>
+          <%= link_to 'Show', purchase, class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_purchase_path(purchase), class: 'btn btn-primary' %>
+          <%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+        </div>
+      </div>
+      <% if index.odd? %>
+            </div>
+            <hr />
+      <% end %>
+  <% end %>
+  </div>
+</div>
 <br>
 
