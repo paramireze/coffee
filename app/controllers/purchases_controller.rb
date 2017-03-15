@@ -9,7 +9,7 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
-    @purchases = Purchase.all.sorted
+    @purchases = Purchase.most_recent
   end
 
   # GET /purchases/1
