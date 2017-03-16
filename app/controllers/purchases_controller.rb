@@ -10,6 +10,7 @@ class PurchasesController < ApplicationController
   # GET /purchases.json
   def index
     @purchases = Purchase.most_recent
+    @users = User.all
   end
 
   # GET /purchases/1

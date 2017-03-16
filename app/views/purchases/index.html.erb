@@ -7,61 +7,10 @@
     </div>
   </div>
 </div>
-<!--display items in separate columns-->
-<!--<div class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6"></div>
-      <div class="col-md-6"></div>
-    </div>
-  </div>
-</div>-->
-<div class="section">
-  <div class="container">
 
-    <% @purchases.each.with_index do |purchase, index| %>
-      <% if index.odd? %>
-        <div class="row">
-      <% end %>
-      <div class="col-md-6">
-        <h2><%= link_to purchase.item.brand, purchase.item %></h2>
-        <dl class="row">
-          <dt class="col-sm-2">Item Type:</dt>
-          <dd class="col-sm-10"><%= purchase.item.item_type.name %></dd>
-        </dl>
-        <dl class="row">
-          <dt class="col-sm-2">Price:</dt>
-          <dd class="col-sm-10"><%= purchase.item.price_field %></dd>
-        </dl>
+<%= render 'display_recent_purchases' %>
 
-        <dl class="row">
-          <dt class="col-sm-2">Buyers:</dt>
-          <dd class="col-sm-10">
-            <% purchase.buyers.each do |buyer| %>
-                <%= buyer.user.name %><br />
-            <% end %>
-          </dd>
-        </dl>
-        <dl class="row">
-          <dt class="col-sm-2">Location:</dt>
-          <dd class="col-sm-10"><%= purchase.item.store.location %></dd>
-        </dl>
-        <dl class="row">
-          <dt class="col-sm-2">Purchase Date:</dt>
-          <dd class="col-sm-10"><%= purchase.purchase_date.to_s(:custom_datetime) %></dd>
-        </dl>
-        <div>
-          <%= link_to 'Show', purchase, class: 'btn btn-primary' %>
-          <%= link_to 'Edit', edit_purchase_path(purchase), class: 'btn btn-primary' %>
-          <%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
-        </div>
-      </div>
-      <% if index.odd? %>
-            </div>
-            <hr />
-      <% end %>
-  <% end %>
-  </div>
-</div>
+<%= render 'profiles' %>
+
 <br>
 

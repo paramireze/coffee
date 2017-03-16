@@ -1,0 +1,27 @@
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">The Dream Team</h1>
+        <p class="text-center">We build software and drink coffee and other stuff</p>
+      </div>
+    </div>
+    <% @users.each.with_index do |user, index| %>
+        <% if index.odd? %>
+            <div class="row">
+        <% end %>
+        <div class="col-md-2">
+          <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+               class="img-circle img-responsive">
+        </div>
+        <div class="col-md-4">
+          <h3 class="text-left"><%= user.name %></h3>
+          <p class="text-left">Lorem ipsum dolor sit amet, adipiscing elit Aenean commodo ligula eget.</p>
+        </div>
+
+        <% if index.odd? %>
+            </div><hr />
+        <% end %>
+    <% end %>
+  </div>
+</div>
