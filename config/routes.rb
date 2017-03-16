@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'welcome/about'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'purchases#index'
+  root to: 'welcome#home'
 
   resources :items do
     member do

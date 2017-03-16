@@ -1,16 +1,40 @@
-<div class="section">
-  <div class="container">
-    <div class="col-md-12">
-      <h1>Most Recent Purchases</h1>
-      <%= link_to 'New Purchase', new_purchase_path, class: "btn btn-primary" %>
-    </div>
-  </div>
-</div>
+<h1>Purchases</h1>
+<%= link_to 'New Purchase', new_purchase_path, class: 'btn btn-primary pull-right' %>
 
-<%= render 'display_recent_purchases' %>
-<div>
-  <%= link_to 'See All', new_purchase_path %>
-</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th>item</th>
+    <th>brand</th>
+    <th>buyer</th>
+    <th>price</th>
+    <th>store</th>
+    <th>Location</th>
+    <th>Purchase Date</th>
+    <th></th>
+  </tr>
+  </thead>
 
-<br>
-
+  <tbody>
+  <% @purchases.each do |purchase| %>
+      <tr>
+        <td><%= purchase.item.item_type.name %></td>
+        <td><%= link_to purchase.item.brand, purchase.item %></td>
+        <td>
+          <% purchase.buyers.each do |buyer| %>
+              <%= buyer.user.name %><br />
+          <% end %>
+        </td>
+        <td><%= purchase.item.price_field %></td>
+        <td><%= purchase.item.store.name %></td>
+        <td><%= purchase.item.store.location %></td>
+        <td><%= purchase.purchase_date.to_s(:custom_datetime) %></td>
+        <td>
+          <%= link_to 'Show', purchase %><br />
+          <%= link_to 'Edit', edit_purchase_path(purchase) %><br />
+          <%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
