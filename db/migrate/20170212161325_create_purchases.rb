@@ -3,7 +3,6 @@ class CreatePurchases < ActiveRecord::Migration[5.0]
     create_table :purchases do |t|
       t.references :item, foreign_key: true
       t.datetime :purchaseDate
-      t.string :location
       t.boolean :deleted
 
       t.timestamps

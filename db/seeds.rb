@@ -13,10 +13,10 @@ Purchase.delete_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('User')
 User.delete_all
-paul = User.create(first_name: 'paul', last_name: 'ramirez', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
-bryan = User.create(first_name: 'bryan ', last_name: 'ramirez', username: 'bryan', password: 'bryan', email: 'bramirez@uwhealth.org')
-arseny = User.create(first_name: 'arseny ', last_name: 'semin', username: 'arseny', password: 'arseny', email: 'asemin@uwhealth.org')
-elizabeth = User.create(first_name: 'elizabeth ', last_name: 'simcock', username: 'elizabeth', password: 'elizabeth', email: 'esimcock@uwhealth.org')
+paul      = User.create(first_name: 'paul', last_name: 'ramirez', description: 'description for this person', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
+bryan     = User.create(first_name: 'bryan ', last_name: 'ramirez', description: 'description for this person', username: 'bryan', password: 'bryan', email: 'bramirez@uwhealth.org')
+arseny    = User.create(first_name: 'arseny ', last_name: 'semin', description: 'description for this person', username: 'arseny', password: 'arseny', email: 'asemin@uwhealth.org')
+elizabeth = User.create(first_name: 'elizabeth ', last_name: 'simcock', description: 'description for this person', username: 'elizabeth', password: 'elizabeth', email: 'esimcock@uwhealth.org')
 
 #create roles
 ActiveRecord::Base.connection.reset_pk_sequence!('Role')
@@ -59,11 +59,11 @@ ActiveRecord::Base.connection.reset_pk_sequence!('Item')
 Item.delete_all
 ethopian_sidano = Item.create(item_type: coffee, store: evp, brand: 'Ethopian Sidano', price: 15.00, description: 'Sweet citruis aromatics and pleasing maple syrup-like body. The wild sweet lemon and floral tones round out into a smooth, clean finish.' )
 
-bryanPurchase = Purchase.create(item: ethopian_sidano, purchase_date: '2017-03-09 13:30:00', location: nil, deleted: 'f' )
+bryanPurchase = Purchase.create(item: ethopian_sidano, purchase_date: '2017-03-09 13:30:00', deleted: 'f' )
 
 buyer = Buyer.create(purchase: bryanPurchase, user: bryan)
 
 
 
-
+e
 
