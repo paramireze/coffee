@@ -3,6 +3,8 @@ class User < ApplicationRecord
   #use bcrypt to secure our password
   has_secure_password
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :buyers
   has_many :purchases, through: :buyers
 
