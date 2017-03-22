@@ -65,5 +65,4 @@ buyer = Buyer.create(purchase: bryanPurchase, user: bryan)
 
 
 
-e
 
