@@ -11,30 +11,30 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-ex-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item">
-          <%= link_to 'Purchases', purchases_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Items', items_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Stores', stores_path, class: 'nav-link' %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to 'Users', users_path, class: 'nav-link' %>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to 'Item Types', item_types_path, class: 'nav-link' %>
-        </li>            <li>
         <% if session[:user_id] != nil %>
+          <li class="nav-item">
+            <%= link_to 'Purchases', purchases_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Items', items_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Stores', stores_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'Users', users_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'Item Types', item_types_path, class: 'nav-link' %>
+          </li>
+          <li>
             <%= link_to("Logout", access_logout_path, class: 'nav-link') %>
         <% else %>
             <%= link_to("Login", access_login_path, class: 'nav-link') %>
         <% end %>
-
-      </li>
+        </li>
       </ul>
     </div>
   </div>
