@@ -21,7 +21,7 @@
 <div class="section">
   <div class="container">
     <div class="col-md-12">
-      <h1>Most Recent Purchases</h1>
+      <h1>Recent Purchases</h1>
     </div>
   </div>
 </div>
@@ -30,6 +30,40 @@
 <div>
   <%= link_to 'See All', new_purchase_path %>
 </div>
-
+</div>
 <br>
+<div class="section section-info">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">Meet the Contributers</h1>
+        <p class="text-center">We are a group of mostly functional individuals.</p>
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+    <% @users.each.with_index do |user, index| %>
+            <% if index.odd? %>
+              <div class="row">
+            <% end %>
+          <div class="col-md-2">
+            <% if !user.avatar.file.nil? %>
+                <%= image_tag user.avatar, class: 'img-circle img-responsive' %>
+            <% else %>
+                <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
+            <% end %>
+          </div>
+          <div class="col-md-4">
+            <h3 class="text-left"><%= user.name %></h3>
+            <p class="text-left"><%= user.description %></p>
+          </div>
+
+          <% if index.odd? %>
+              </div>
+              <br />
+          <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>
 

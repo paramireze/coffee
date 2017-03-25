@@ -13,7 +13,7 @@ Purchase.delete_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('User')
 User.delete_all
-paul      = User.create(first_name: 'paul', last_name: 'ramirez', description: 'description for this person', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
+paul      = User.create(first_name: 'paul', last_name: 'ramirez', description: 'A Caffeine dependent life-form', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
 bryan     = User.create(first_name: 'bryan ', last_name: 'ramirez', description: 'description for this person', username: 'bryan', password: 'bryan', email: 'bramirez@uwhealth.org')
 arseny    = User.create(first_name: 'arseny ', last_name: 'semin', description: 'description for this person', username: 'arseny', password: 'arseny', email: 'asemin@uwhealth.org')
 elizabeth = User.create(first_name: 'elizabeth ', last_name: 'simcock', description: 'description for this person', username: 'elizabeth', password: 'elizabeth', email: 'esimcock@uwhealth.org')
@@ -23,10 +23,6 @@ ActiveRecord::Base.connection.reset_pk_sequence!('Role')
 Role.delete_all
 user = Role.create(name:'user')
 admin = Role.create(name:'admin')
-
-
-
-
 
 # assign roles
 ActiveRecord::Base.connection.reset_pk_sequence!('RoleUser')
@@ -58,12 +54,11 @@ coffee = ItemType.create(name: 'Coffee')
 ActiveRecord::Base.connection.reset_pk_sequence!('Item')
 Item.delete_all
 ethopian_sidano = Item.create(item_type: coffee, store: evp, brand: 'Ethopian Sidano', price: 15.00, description: 'Sweet citruis aromatics and pleasing maple syrup-like body. The wild sweet lemon and floral tones round out into a smooth, clean finish.' )
-
 congo           = Item.create(item_type: coffee, store: evp, brand: 'Congo', price: 15.00, description: 'Light roast coffee that has recently been selling at EVP' )
 ethopianPurchase = Purchase.create(item: ethopian_sidano, purchase_date: '2017-03-09 13:30:00', deleted: 'f' )
 congoPurchase  = Purchase.create(item: congo, purchase_date: '2017-03-19 10:30:00', deleted: 'f' )
 
-buyer = Buyer.create(purchase: ethopianPurchase, user: bryan)
+Buyer.create(purchase: ethopianPurchase, user: bryan)
 Buyer.create(purchase: congoPurchase, user: paul)
 
 
