@@ -1,102 +1,31 @@
 <% content_for :before_nav do %>
-    <div class="cover">
-      <div class="cover-image" style="background-image: url(https://unsplash.imgix.net/photo-1418065460487-3e41a6c84dc5?q=25&amp;fm=jpg&amp;s=127f3a3ccf4356b7f79594e05f6c840e)"></div>
+  <div class="cover">
+    <div class="cover-image" style="background-image: url(https://unsplash.imgix.net/photo-1418065460487-3e41a6c84dc5?q=25&amp;fm=jpg&amp;s=127f3a3ccf4356b7f79594e05f6c840e)"></div>
 <% end %>
 <% content_for :after_nav do %>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <h1 class="text-inverse">Coffee Tracker</h1>
-              <p class="text-inverse">Because these things matter</p>
-              <br>
-              <br>
-              <%= link_to 'New Purchase', new_purchase_path, class: "btn btn-primary" %></a>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1 class="text-inverse">Coffee Tracker</h1>
+            <p class="text-inverse">Because these things matter</p>
+            <br>
+            <br>
+            <%= link_to 'New Purchase', new_purchase_path, class: "btn btn-primary" %></a>
           </div>
         </div>
       </div>
     </div>
-<% end %>
-<div class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="page-header">
-          <h1>Recent Purchases <small>displays last 5 purchases</small></h1>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
+<% end %>
 
 <%= render 'display_recent_purchases' %>
+
 <div>
   <%= link_to 'See All', new_purchase_path %>
 </div>
 </div>
 <br>
-<div class="section section-info">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="text-center">Meet the Contributers</h1>
-        <p class="text-center">We are a group of mostly functional individuals.</p>
-        <hr />
-      </div>
-    </div>
-    <div class="row">
-    <% @users.each.with_index do |user, index| %>
-            <% if index.odd? %>
-              <div class="row">
-            <% end %>
-          <div class="col-md-2">
-            <% if !user.avatar.file.nil? %>
-                <%= image_tag user.avatar, class: 'img-circle img-responsive' %>
-            <% else %>
-                <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
-            <% end %>
-          </div>
-          <div class="col-md-4">
-            <h3 class="text-left"><%= user.name %></h3>
-            <p class="text-left"><%= user.description %></p>
-          </div>
+<%= render 'display_contributers' %>
+<%= render 'display_stores' %>
 
-          <% if index.odd? %>
-              </div>
-              <br />
-          <% end %>
-    <% end %>
-    </div>
-  </div>
-</div>
-
-
-<div class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="page-header">
-          <h1>Stores <small></small></h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="container">
-    <% @stores.each do | store | %>
-      <div class="row">
-        <div class="col-md-6">
-          <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png" class="img-responsive">
-        </div><div class="col-md-6">
-        <h1><%= store.name %></h1>
-        <h3><%= store.location %></h3>
-        <p>
-          <%= store.description %>
-        </p>
-      </div>
-    <% end %>
-  </div>
-</div>
 </div>

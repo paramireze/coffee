@@ -1,0 +1,19 @@
+<% content_for :before_nav do %>
+    <div class="cover">
+      <div class="cover-image" style="background-image: url(https://unsplash.imgix.net/photo-1418065460487-3e41a6c84dc5?q=25&amp;fm=jpg&amp;s=127f3a3ccf4356b7f79594e05f6c840e)"></div>
+<% end %>
+<% content_for :after_nav do %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="text-inverse">Coffee Tracker</h1>
+          <p class="text-inverse">Because these things matter</p>
+          <br>
+          <br>
+          <%= link_to 'New Purchase', new_purchase_path, class: "btn btn-primary" %></a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+<% end %>
