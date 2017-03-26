@@ -18,12 +18,12 @@
             <%= image_tag purchase.buyers.first.user.avatar   , class: 'img-circle img-responsive' %>
           </div>
           <div class="col-md-10">
-            <h1><%= link_to purchase.item.brand, purchase.item %></h1>
+            <h1><%= link_to purchase.item.brand, purchase.item %> </h1>
             <h3><%= purchase.item.price_field %></h3>
+            <h3><%= purchase.purchase_date.to_s(:custom_datetime) %></h3>
 
             </dl>
             <p><%= purchase.item.description %>
-            </p>
           </div>
         </div>
         <hr />
