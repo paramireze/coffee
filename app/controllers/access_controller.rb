@@ -27,8 +27,7 @@ class AccessController < ApplicationController
       session[:user_id]   = authorized_user.id
       session[:username]  = authorized_user.username
       flash[:notice]      = "you are now logged in."
-      authorized_user.is_admin ? redirect_to('/') : redirect_to('/')
-
+      redirect_to session[:referer]
     else
       flash.now[:notice] = "Invalid username/password combination."
       render('login')

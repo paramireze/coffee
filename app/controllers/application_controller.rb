@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   def confirm_logged_in
     unless session[:user_id]
+      session[:referer] = request.url
       flash[:notice] = "Please log in."
       redirect_to(access_login_path)
     end
