@@ -16,5 +16,16 @@
 
 
 #backgroundImage {
-  background: url("http://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/sources/everest-minimalist-wallpaper-blue.png");
+  /*background: url("http://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/sources/everest-minimalist-wallpaper-blue.png");*/
+  /*background: url("http://www.androidguys.com/wp-content/uploads/2016/05/Poly-Lakeside.jpg");*/
+  /*background: url("http://i.imgur.com/3Zk4aNH.jpg");*/
+  /*background: url("http://cdn-media-1.lifehack.org/wp-content/files/2013/04/94.jpg");*/
+  background: url("http://cdn-media-1.lifehack.org/wp-content/files/2013/04/9.jpg");
+
+  /*background: url("http://eskipaper.com/images/minimalist-wallpaper-17.jpg");*/
+  /*background: url("http://i.imgur.com/MIRCCsJ.jpg");*/
+}
+
+.color-white {
+    color:white;
 }
