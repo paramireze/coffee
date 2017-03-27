@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170307060030) do
 
   create_table "item_types", force: :cascade do |t|
     t.string   "name"
+    t.string   "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170307060030) do
     t.integer  "item_type_id"
     t.decimal  "price"
     t.string   "brand"
+    t.string   "image_url"
     t.string   "description"
     t.integer  "replaced_by"
     t.integer  "replaced"
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 20170307060030) do
     t.string   "name"
     t.string   "location"
     t.string   "description"
+    t.string   "image_url"
     t.integer  "replaced_by"
     t.integer  "replaced"
     t.datetime "created_at",  null: false

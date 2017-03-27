@@ -15,6 +15,14 @@
   <dt class="col-sm-3"># of Items listed:</dt>
   <dd class="col-sm-9"><%= @store.items.count %></dd>
 </dl>
+
+<dl class="row">
+  <dt class="col-sm-3">Image:</dt>
+  <dd class="col-sm-9"><%= @store.image_url %></dd>
+</dl>
+<br />
+<%= link_to image_tag(@store.image_url, :alt => "logo"), "/" %>
+<br />
 <h2>Store Items</h2>
 
 <table class="table">
@@ -29,15 +37,15 @@
   </thead>
   <tbody>
   <% @store.items.each do |item| %>
-      <td><%= item.price_field %></td>
-      <td><%= item.brand %></td>
-      <td><%= item.description %></td>
-      <td>
-        <%= link_to 'Show', item %><br />
-        <%= link_to 'Edit', edit_item_path(item) %><br />
-        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </td>
-
+      <tr>
+        <td><%= item.price_field %></td>
+        <td><%= item.brand %></td>
+        <td><%= item.description %></td>
+        <td>
+          <%= link_to 'Show', item %><br />
+          <%= link_to 'Edit', edit_item_path(item) %><br />
+          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
   <% end %>
   </tbody>

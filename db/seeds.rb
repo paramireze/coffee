@@ -13,10 +13,10 @@ Purchase.delete_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('User')
 User.delete_all
-paul      = User.create(first_name: 'paul', last_name: 'ramirez', description: 'A Caffeine dependent life-form', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
-bryan     = User.create(first_name: 'bryan ', last_name: 'ramirez', description: 'description for this person', username: 'bryan', password: 'bryan', email: 'bramirez@uwhealth.org')
-arseny    = User.create(first_name: 'arseny ', last_name: 'semin', description: 'description for this person', username: 'arseny', password: 'arseny', email: 'asemin@uwhealth.org')
-elizabeth = User.create(first_name: 'elizabeth ', last_name: 'simcock', description: 'description for this person', username: 'elizabeth', password: 'elizabeth', email: 'esimcock@uwhealth.org')
+paul      = User.create(first_name: 'paul', last_name: 'ramirez', description: 'Has a strange fascination with bikes ', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
+bryan     = User.create(first_name: 'bryan ', last_name: 'ramirez', description: 'A Caffeine dependent life-form', username: 'bryan', password: 'bryan', email: 'bramirez@uwhealth.org')
+arseny    = User.create(first_name: 'arseny ', last_name: 'semin', description: "he's problaby smarter than you", username: 'arseny', password: 'arseny', email: 'asemin@uwhealth.org')
+elizabeth = User.create(first_name: 'elizabeth ', last_name: 'simcock', description: "mostly a well dressed hippie", username: 'elizabeth', password: 'elizabeth', email: 'esimcock@uwhealth.org')
 
 #create roles
 ActiveRecord::Base.connection.reset_pk_sequence!('Role')
