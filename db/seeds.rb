@@ -13,10 +13,10 @@ Purchase.delete_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('User')
 User.delete_all
-paul      = User.create(first_name: 'paul', last_name: 'ramirez', description: 'Has a strange fascination with bikes ', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
+paul      = User.create(first_name: 'paul', last_name: 'ramirez', description: 'Has a solid appreciation for all things bike related', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
 bryan     = User.create(first_name: 'bryan ', last_name: 'ramirez', description: 'A Caffeine dependent life-form', username: 'bryan', password: 'bryan', email: 'bramirez@uwhealth.org')
-arseny    = User.create(first_name: 'arseny ', last_name: 'semin', description: "he's problaby smarter than you", username: 'arseny', password: 'arseny', email: 'asemin@uwhealth.org')
-elizabeth = User.create(first_name: 'elizabeth ', last_name: 'simcock', description: "mostly a well dressed hippie", username: 'elizabeth', password: 'elizabeth', email: 'esimcock@uwhealth.org')
+arseny    = User.create(first_name: 'arseny ', last_name: 'semin', description: 'he is probaby smarter than you', username: 'arseny', password: 'arseny', email: 'asemin@uwhealth.org')
+elizabeth = User.create(first_name: 'elizabeth ', last_name: 'simcock', description: 'mostly a well dressed hippie', username: 'elizabeth', password: 'elizabeth', email: 'esimcock@uwhealth.org')
 
 #create roles
 ActiveRecord::Base.connection.reset_pk_sequence!('Role')
@@ -42,7 +42,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('Store')
 Store.delete_all
 evp = Store.create(name: 'evp', location: 'va hospital', description: 'evp (etes-vous prets?!) coffee is a local, independent & woman-owned business that opened in october of 1997 on highland avenue in madison, wisconsin.  over 19 years later, evp now has 6 vibrant locations & roasts over 30,000 pounds of coffee each year.
 our intention since we opened has been to serve all people beautifully, and in the spirit of kindness and love.  we aim to serve our community with honesty and accountability & to be stewards of our environment through composting and other initiatives.
-at evp, we believe the spirit in which we serve is as important was what we serve. we see that kindness and love are lacking in this world, and our intention is to create a work culture & business that emphasize these ideals.')
+at evp, we believe the spirit in which we serve is as important was what we serve. we see that kindness and love are lacking in this world, and our intention is to create a work culture & business that emphasize these ideals.', image_url: 'http://evpcof.fatcow.com/store/media/evp_coffee_logo.jpg')
 #barriques = Store.create(name: 'barriques', location: 'madison', description: 'regardless of origin, region, certification or affiliation, every coffee we source has to meet our exacting quality standards first. we distinguish ourselves with a focus on freshness and approachable quality. our belief is that everyone should have access to great coffee and our 6 thriving cafes in the madison area owe a large part of their success to the uncompromising view that our customers deserve the best quality for the dollar. we bring this same commitment and enthusiasm to our wholesale clients.')
 
 ActiveRecord::Base.connection.reset_pk_sequence!('ItemType')
