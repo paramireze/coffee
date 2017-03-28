@@ -2,6 +2,10 @@
 
 <h1><%= @store.name %></h1>
 <hr />
+<div>
+  <%= link_to 'Edit This Store', edit_store_path(@store), { class: 'btn btn-primary'} %>
+</div>
+<hr />
 <p><%= @store.description %></p>
 <h2>Details</h2>
 <hr />
