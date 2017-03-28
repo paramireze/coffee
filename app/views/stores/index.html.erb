@@ -3,25 +3,41 @@
 <hr />
 <% @stores.each do |store| %>
   <h2><%= store.name %></h2>
+
+  <dl class="row">
+    <dt class="col-sm-2"><img src="<%= store.image_url %>" class="img-responsive"></dt>
+    <dd class="col-sm-10"><%= store.description %></dd>
+  </dl>
+
   <hr />
+
+
   <div>
     <%= link_to 'Show', store, { class: 'btn btn-primary'} %>
     <%= link_to 'Edit This Store', edit_store_path(store), { class: 'btn btn-primary'} %>
   </div>
   <hr />
-  <div>Location: <%= store.location %></div>
-  <div># of items sold: <%= store.items.count %></div>
-  <div>Total # of purchases:
-    <!-- make me a helper -->
-  <% count = 0 %>
-  <% store.items.each do |item| %>
-        <% count += item.purchase.count %>
-  <% end %>
-  <%= count %>
-  </div>
-  <div>Description: <%= store.description %></div>
+  <dl class="row">
+    <dt class="col-sm-2">Location:</dt>
+    <dd class="col-sm-10"><%= store.location %></dd>
+  </dl>
+  <dl class="row">
+    <dt class="col-sm-2">total items:</dt>
+    <dd class="col-sm-10"><%= store.items.count %></dd>
+  </dl>
 
-<!--
+  <dl class="row">
+    <dt class="col-sm-2"># items sold:</dt>
+    <dd class="col-sm-10">
+      <% count = 0 %>
+      <% store.items.each do |item| %>
+          <% count += item.purchase.count %>
+      <% end %>
+      <%= count %>
+    </dd>
+  </dl>
+  <hr />
+    <h2><%= store.name %> Store Items</h2>
   <table class="table">
     <thead>
       <tr>
@@ -47,8 +63,9 @@
     <% end %>
     </tbody>
   </table>
--->
+
 
   <hr />
 <% end %>
+</div>
 <br>

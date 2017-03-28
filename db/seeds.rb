@@ -48,7 +48,7 @@ at evp, we believe the spirit in which we serve is as important was what we serv
 ActiveRecord::Base.connection.reset_pk_sequence!('ItemType')
 ItemType.delete_all
 
-coffee = ItemType.create(name: 'Coffee')
+coffee = ItemType.create(name: 'Coffee', image_url: 'http://www.webstaurantstore.com/images/products/extra_large/45595/637734.jpg')
 
 
 ActiveRecord::Base.connection.reset_pk_sequence!('Item')
