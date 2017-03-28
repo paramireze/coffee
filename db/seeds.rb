@@ -13,10 +13,10 @@ Purchase.delete_all
 
 ActiveRecord::Base.connection.reset_pk_sequence!('User')
 User.delete_all
-paul      = User.create(first_name: 'paul', last_name: 'ramirez', description: 'Has a solid appreciation for all things bike related', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
-bryan     = User.create(first_name: 'bryan ', last_name: 'ramirez', description: 'A Caffeine dependent life-form', username: 'bryan', password: 'bryan', email: 'bramirez@uwhealth.org')
-arseny    = User.create(first_name: 'arseny ', last_name: 'semin', description: 'he is probaby smarter than you', username: 'arseny', password: 'arseny', email: 'asemin@uwhealth.org')
-elizabeth = User.create(first_name: 'elizabeth ', last_name: 'simcock', description: 'mostly a well dressed hippie', username: 'elizabeth', password: 'elizabeth', email: 'esimcock@uwhealth.org')
+paul      = User.create(first_name: 'paul', last_name: 'ramirez', image_url: 'https://snag.gy/zCbYf9.jpg', description: 'Has a solid appreciation of bikes', username: 'paul', password: 'paul', email: 'pramirez@uwhealth.org')
+bryan     = User.create(first_name: 'bryan ', last_name: 'ramirez', image_url: 'https://snag.gy/G85muK.jpg', description: 'A Caffeine dependent life-form who often has disney songs stuck in his head.', username: 'bryan', password: 'bryan', email: 'bramirez@uwhealth.org')
+arseny    = User.create(first_name: 'arseny ', last_name: 'semin', image_url: 'https://snag.gy/yaO3EZ.jpg', description: 'rarely combs his hair', username: 'arseny', password: 'arseny', email: 'asemin@uwhealth.org')
+elizabeth = User.create(first_name: 'elizabeth ', last_name: 'simcock', image_url: 'https://snag.gy/inXmJZ.jpg', description: 'really enjoys legos', username: 'elizabeth', password: 'elizabeth', email: 'esimcock@uwhealth.org')
 
 #create roles
 ActiveRecord::Base.connection.reset_pk_sequence!('Role')

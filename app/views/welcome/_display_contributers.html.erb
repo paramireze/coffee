@@ -13,8 +13,8 @@
               <div class="row">
           <% end %>
           <div class="col-md-2">
-            <% if !user.avatar.file.nil? %>
-                <%= image_tag user.avatar, class: 'img-circle img-responsive' %>
+            <% if !user.image_url.nil? %>
+                <%= image_tag user.image_url, class: 'img-circle img-responsive' %>
             <% else %>
                 <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
             <% end %>
