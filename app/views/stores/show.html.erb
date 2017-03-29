@@ -6,26 +6,31 @@
   <%= link_to 'Edit This Store', edit_store_path(@store), { class: 'btn btn-primary'} %>
 </div>
 <hr />
-<p><%= @store.description %></p>
-<h2>Details</h2>
+<dl class="row">
+  <dt class="col-sm-4"><%= image_tag(@store.image_url, :alt => "logo", :class => 'img-responsive') %></dt>
+  <dd class="col-sm-8">
+    <%= @store.description %>
+    <hr />
+    <br />
+    <dl class="row">
+      <dt class="col-sm-3">Location:</dt>
+      <dd class="col-sm-9"><%= @store.location %></dd>
+    </dl>
+
+    <dl class="row">
+      <dt class="col-sm-3"># of Items listed:</dt>
+      <dd class="col-sm-9"><%= @store.items.count %></dd>
+    </dl>
+
+    <dl class="row">
+      <dt class="col-sm-3">Image:</dt>
+      <dd class="col-sm-9"><%= @store.image_url %></dd>
+    </dl>
+  </dd>
+</dl>
+
 <hr />
-<dl class="row">
-  <dt class="col-sm-3">Location:</dt>
-  <dd class="col-sm-9"><%= @store.location %></dd>
-</dl>
 
-
-<dl class="row">
-  <dt class="col-sm-3"># of Items listed:</dt>
-  <dd class="col-sm-9"><%= @store.items.count %></dd>
-</dl>
-
-<dl class="row">
-  <dt class="col-sm-3">Image:</dt>
-  <dd class="col-sm-9"><%= @store.image_url %></dd>
-</dl>
-<br />
-<%= link_to image_tag(@store.image_url, :alt => "logo"), "/" %>
 <br />
 <h2>Store Items</h2>
 

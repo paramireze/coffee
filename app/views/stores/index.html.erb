@@ -5,8 +5,38 @@
   <h2><%= store.name %></h2>
 
   <dl class="row">
-    <dt class="col-sm-2"><img src="<%= store.image_url %>" class="img-responsive"></dt>
-    <dd class="col-sm-10"><%= store.description %></dd>
+    <dt class="col-sm-3">
+      <% if store.image_url.present? %>
+        <img src="<%= store.image_url %>" class="img-responsive">
+      <% else %>
+        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png"
+               class="img-responsive">
+      <% end %>
+    </dt>
+    <dd class="col-sm-9">
+      <%= store.description %>
+      <hr />
+      <dl class="row">
+        <dt class="col-sm-2">Location:</dt>
+        <dd class="col-sm-10"><%= store.location %></dd>
+      </dl>
+      <dl class="row">
+        <dt class="col-sm-2">total items:</dt>
+        <dd class="col-sm-10"><%= store.items.count %></dd>
+      </dl>
+
+      <dl class="row">
+        <dt class="col-sm-2"># items sold:</dt>
+        <dd class="col-sm-10">
+          <% count = 0 %>
+          <% store.items.each do |item| %>
+              <% count += item.purchase.count %>
+          <% end %>
+          <%= count %>
+        </dd>
+      </dl>
+
+    </dd>
   </dl>
 
   <hr />
@@ -16,56 +46,6 @@
     <%= link_to 'Show', store, { class: 'btn btn-primary'} %>
     <%= link_to 'Edit This Store', edit_store_path(store), { class: 'btn btn-primary'} %>
   </div>
-  <hr />
-  <dl class="row">
-    <dt class="col-sm-2">Location:</dt>
-    <dd class="col-sm-10"><%= store.location %></dd>
-  </dl>
-  <dl class="row">
-    <dt class="col-sm-2">total items:</dt>
-    <dd class="col-sm-10"><%= store.items.count %></dd>
-  </dl>
-
-  <dl class="row">
-    <dt class="col-sm-2"># items sold:</dt>
-    <dd class="col-sm-10">
-      <% count = 0 %>
-      <% store.items.each do |item| %>
-          <% count += item.purchase.count %>
-      <% end %>
-      <%= count %>
-    </dd>
-  </dl>
-  <hr />
-    <h2><%= store.name %> Store Items</h2>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Price</th>
-        <th>Brand</th>
-        <th>Description</th>
-        <th>Items List</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% store.items.each do |item| %>
-        <td><%= item.price_field %></td>
-        <td><%= item.brand %></td>
-        <td><%= item.description %></td>
-        <td>
-          <%= link_to 'Show', item %><br />
-          <%= link_to 'Edit', edit_item_path(item) %><br />
-          <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
-
-
-  <hr />
 <% end %>
 </div>
 <br>

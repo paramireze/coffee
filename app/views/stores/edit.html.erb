@@ -1,6 +1,8 @@
 <h1>Editing Store</h1>
+<hr />
+<%= link_to 'Back', stores_path, class: 'btn btn-primary' %> |
+<%= link_to 'Show', @store, class: 'btn btn-primary' %>
+<hr />
 
 <%= render 'form', store: @store %>
 
-<%= link_to 'Show', @store %> |
-<%= link_to 'Back', stores_path %>
