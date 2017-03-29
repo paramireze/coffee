@@ -15,10 +15,12 @@
     <% @purchases.each do |purchase| %>
         <div class="row">
           <div class="col-md-2">
-            <% if purchase.buyers.first.user.image_url.present? %>
-                <%= image_tag purchase.buyers.first.user.image_url, class: 'img-circle img-responsive' %>
-            <% else %>
-                <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
+            <%= link_to user_path(purchase.buyers.first.user) do %>
+              <% if purchase.buyers.first.user.image_url.present? %>
+                  <%= image_tag purchase.buyers.first.user.image_url, class: 'img-circle img-responsive' %>
+              <% else %>
+                  <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle img-responsive">
+              <% end %>
             <% end %>
           </div>
           <div class="col-md-10">
