@@ -10,61 +10,43 @@
       <%= link_to 'Edit This Item', edit_item_path(item), { class: 'btn btn-primary'} %>
     </div>
     <hr />
-    <p><%= item.description %></p>
-    <hr />
     <dl class="row">
-      <dt class="col-sm-2">Item Type:</dt>
-      <dd class="col-sm-10"><%= item.item_type.name %></dd>
-    </dl>
-    <dl class="row">
-      <dt class="col-sm-2">Price:</dt>
-      <dd class="col-sm-10"><%= item.price_field %></dd>
-    </dl>
-    <dl class="row">
-      <dt class="col-sm-2">Store:</dt>
-      <dd class="col-sm-10"><%= item.store.name %></dd>
-    </dl>
-    <dl class="row">
-      <dt class="col-sm-2">Location:</dt>
-      <dd class="col-sm-10"><%= item.store.location %></dd>
-    </dl>
-    <dl class="row">
-      <dt class="col-sm-2"># of times purchased:</dt>
-      <dd class="col-sm-10"><%= item.purchase.count %></dd>
-    </dl>
+      <dt class="col-sm-3">
+        <% if item.image_url.present? %>
+            <%= image_tag(item.image_url, :class => 'img-responsive') %>
+        <% elsif item.item_type.image_url.present? %>
+                <%= image_tag(item.item_type.image_url, :class => 'img-responsive') %>
+        <% else %>
+            <%= image_tag('http://pingendo.github.io/pingendo-bootstrap/assets/placeholder.png', :class => 'img-responsive') %>
+        <% end %>
+      </dt>
+      <dd class="col-sm-9">
+        <%= item.description %>
+        
+        <dl class="row">
+          <dt class="col-sm-3">Item Type:</dt>
+          <dd class="col-sm-9"><%= item.item_type.name %></dd>
+        </dl>
+        <dl class="row">
+          <dt class="col-sm-3">Price:</dt>
+          <dd class="col-sm-9"><%= item.price_field %></dd>
+        </dl>
 
-<!--
-    <h2>Purchases made for this Item</h2>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>purchase date</th>
-        <th>buyers</th>
-        <th>Deleted</th>
-        <th colspan="3"></th>
-      </tr>
-      </thead>
+        <dl class="row">
+          <dt class="col-sm-3">Store:</dt>
+          <dd class="col-sm-9"><%= item.store.name %></dd>
+        </dl>
 
-      <tbody>
-      <% item.purchase.each do |purchase| %>
-          <tr>
-            <td><%= purchase.purchase_date.to_s(:custom_datetime) %></td>
-            <td>
-              <% purchase.buyers.each do |buyer| %>
-                  <%= buyer.user.name %><br />
-              <% end %>
-            </td>
-            <td><%= purchase.deleted %></td>
-            <td>
-              <%= link_to 'Show', purchase %>
-              <%= link_to 'Edit', edit_purchase_path(purchase) %>
-              <%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
--->
+        <dl class="row">
+          <dt class="col-sm-3">Location:</dt>
+          <dd class="col-sm-9"><%= item.store.name %></dd>
+        </dl>
+        <dl class="row">
+          <dt class="col-sm-3"># of times purchased:</dt>
+          <dd class="col-sm-9"><%= item.purchase.count %></dd>
+        </dl>
+      </dd>
+    </dl>
     <hr />
     <% end %>
 <br>
