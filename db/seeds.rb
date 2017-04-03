@@ -55,11 +55,14 @@ ActiveRecord::Base.connection.reset_pk_sequence!('Item')
 Item.delete_all
 ethopian_sidano = Item.create(item_type: coffee, store: evp, brand: 'Ethopian Sidano', price: 15.00, description: 'Sweet citruis aromatics and pleasing maple syrup-like body. The wild sweet lemon and floral tones round out into a smooth, clean finish.', image_url: 'https://sc01.alicdn.com/kf/HTB1BhUyMVXXXXaNaXXXq6xXFXXXV/Food-Packaging-Printing-Flat-Bottom-Resealable-coffee.jpg' )
 congo           = Item.create(item_type: coffee, store: evp, brand: 'Congo', price: 15.00, description: 'Light roast coffee that has recently been selling at EVP' )
+tanzanianPeaberry = Item.create(item_type: coffee, store: evp, brand: 'Tanzanian Peaberry', price: 15.00, description: 'A high-octane light roast much sought after by our customers. Grown on the slopes of Mount Kilimanjaro, this coffee is sweetly acidic with wonderful aroma. Wine and fruit overtones.', image_url: 'http://cdn.shopify.com/s/files/1/0658/3597/products/indian-monsooned-malabar-2_large.jpg?v=1426559070' )
 ethopianPurchase = Purchase.create(item: ethopian_sidano, purchase_date: '2017-03-09 13:30:00', deleted: 'f' )
 congoPurchase  = Purchase.create(item: congo, purchase_date: '2017-03-19 10:30:00', deleted: 'f' )
+tanzanianPeaberryPurchase  = Purchase.create(item: tanzanianPeaberry, purchase_date: '2017-03-31 10:30:00', deleted: 'f' )
 
 Buyer.create(purchase: ethopianPurchase, user: bryan)
 Buyer.create(purchase: congoPurchase, user: paul)
+Buyer.create(purchase: tanzanianPeaberry, user: bryan)
 
 
 

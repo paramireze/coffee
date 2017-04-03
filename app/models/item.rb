@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to :item_type
   belongs_to :store
 
+  scope :most_recent, lambda { order("created_at desc").limit(4)}
 
   def price_field
     helper.number_to_currency(price, :precision => 2)
