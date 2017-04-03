@@ -14,9 +14,9 @@
   <div class="container">
     <% @stores.each do | store | %>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-4">
             <img src="<%= store.image_url %>" class="img-responsive">
-          </div><div class="col-md-6">
+          </div><div class="col-md-8">
           <h1><%= link_to store.name, store_path(store) %></h1>
           <h3><%= store.location %></h3>
           <p>
