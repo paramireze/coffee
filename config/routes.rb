@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items
+  resources :images
   # specific to welcome
   get 'welcome/home'
   get 'welcome/about'

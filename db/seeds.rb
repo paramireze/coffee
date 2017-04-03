@@ -62,7 +62,7 @@ tanzanianPeaberryPurchase  = Purchase.create(item: tanzanianPeaberry, purchase_d
 
 Buyer.create(purchase: ethopianPurchase, user: bryan)
 Buyer.create(purchase: congoPurchase, user: paul)
-Buyer.create(purchase: tanzanianPeaberry, user: bryan)
+Buyer.create(purchase: tanzanianPeaberryPurchase, user: bryan)
 
 
 
