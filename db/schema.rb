@@ -10,9 +10,103 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170403015716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "buyers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "purchase_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["purchase_id"], name: "index_buyers_on_purchase_id", using: :btree
+    t.index ["user_id"], name: "index_buyers_on_user_id", using: :btree
+  end
+
+  create_table "image_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "image_type_id"
+    t.string   "image_url"
+    t.string   "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["image_type_id"], name: "index_images_on_image_type_id", using: :btree
+  end
+
+  create_table "item_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "store_id"
+    t.integer  "item_type_id"
+    t.decimal  "price"
+    t.string   "brand"
+    t.string   "image_url"
+    t.string   "description"
+    t.integer  "replaced_by"
+    t.integer  "replaced"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["item_type_id"], name: "index_items_on_item_type_id", using: :btree
+    t.index ["store_id"], name: "index_items_on_store_id", using: :btree
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "item_id"
+    t.datetime "purchase_date"
+    t.boolean  "deleted"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["item_id"], name: "index_purchases_on_item_id", using: :btree
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.integer "role_id", null: false
+    t.integer "user_id", null: false
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.string   "description"
+    t.string   "image_url"
+    t.integer  "replaced_by"
+    t.integer  "replaced"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name",      limit: 25
+    t.string   "last_name",       limit: 50
+    t.string   "description",     limit: 1000
+    t.string   "image_url",       limit: 1000
+    t.string   "email",           limit: 75
+    t.string   "username",                     null: false
+    t.string   "password_digest", limit: 400
+    t.boolean  "deleted"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_foreign_key "buyers", "purchases"
+  add_foreign_key "buyers", "users"
+  add_foreign_key "images", "image_types"
+  add_foreign_key "purchases", "items"
 end

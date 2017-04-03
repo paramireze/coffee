@@ -64,6 +64,18 @@ Buyer.create(purchase: ethopianPurchase, user: bryan)
 Buyer.create(purchase: congoPurchase, user: paul)
 Buyer.create(purchase: tanzanianPeaberryPurchase, user: bryan)
 
+ActiveRecord::Base.connection.reset_pk_sequence!('ImageType')
+ImageType.delete_all
+backgroundImage1 = ImageType.create(name: 'Background')
+avatarImage1 = ImageType.create(name: 'Avatar')
+productImage1 = ImageType.create(name: 'Product')
+
+ActiveRecord::Base.connection.reset_pk_sequence!('Image')
+Image.delete_all
+Image.create(image_type: backgroundImage1, image_url: 'https://images3.alphacoders.com/621/621682.jpg', description: 'background image')
+
+
+
 
 
 
