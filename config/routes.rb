@@ -23,6 +23,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :image_types do
+    member do
+      get :delete
+    end
+  end
+
   resources :images
   # specific to welcome
   get 'welcome/home'
