@@ -1,52 +1,14 @@
-
-
 <%= render 'home_page_header_image' %>
-<%= render 'display_recent_purchases' %>
 
+<%= render 'display_recent_purchases' %>
 
 </div>
 <br>
 
-<%= render 'display_stores' %>
-<div class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="page-header">
-          <h1>Items</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="section">
-  <div class="container">
-
-    <% @items.each_with_index do |item, index| %>
-        <% if index == 0 || index % 5 == 0 %>
-            <div class="row">
-        <% end %>
-
-
-          <div class="col-md-3">
-            <% if item.image_url.present? %>
-                <%= image_tag item.image_url, class: 'img-circle img-responsive' %>
-            <% else %>
-                <%= image_tag item.item_type.image_url, class: 'img img-responsive' %>
-            <% end %>
-            <h2><%= item.brand  %></h2>
-            <p><%= item.store.name %>
-              <br><%= item.description %></p>
-          </div>
-
-
-        <% if (index % 4 == 0 || @items.last == item) && index != 0 %>
-            </div>
-        <% end %>
-    <% end %>
-  </div>
-</div>
 <%= render 'display_contributers' %>
+
+<%= render 'display_stores' %>
+
+<%= render 'footer' %>
+
 
