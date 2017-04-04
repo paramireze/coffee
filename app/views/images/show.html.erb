@@ -1,19 +1,23 @@
+<h2>Image Details</h2>
 <p id="notice"><%= notice %></p>
+<%= link_to '<- Back', images_path %>
+<hr />
+<dl class="row">
+  <dt class="col-sm-3">
+      <%= image_tag(@image.image_url, :class => 'img-responsive') %>
+  </dt>
+  <dd class="col-sm-9">
+    <dl class="row"><dt class="col-sm-12"><%= @image.description %></dt></dl>
+    <dl class="row">
+      <dt class="col-sm-3">Image Type:</dt>
+      <dd class="col-sm-9"><%= @image.image_type.name %></dd>
+    </dl>
+    <dl class="row">
+      <dt class="col-sm-3">Image URL:</dt>
+      <dd class="col-sm-9"><%= @image.image_url %></dd>
+    </dl>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @image.image_url %>
-</p>
+  </dd>
+</dl>
 
-<p>
-  <strong>Description:</strong>
-  <%= @image.description %>
-</p>
-
-<p>
-  <strong>Image type:</strong>
-  <%= @image.image_type %>
-</p>
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<%= link_to 'Edit', edit_image_path(@image), class: "btn btn-primary" %>

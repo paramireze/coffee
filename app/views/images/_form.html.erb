@@ -11,22 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
+  <div class="form-group row">
+    <%= f.label :image_url, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :image_url, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+  <div class="form-group row">
+    <%= f.label :description, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :image_type %>
-
+  <div class="form-group row">
+    <%= f.label :image_type, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-10">
+      <%= f.collection_select(:image_type_id, ImageType.all, :id, :name)  %>
+    </div>
   </div>
+
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>
