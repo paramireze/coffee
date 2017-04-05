@@ -80,8 +80,8 @@ Image.create(image_type: backgroundImage1, image_url: 'http://cdn-media-1.lifeha
 Image.create(image_type: backgroundImage1, image_url: 'http://cdn-media-1.lifehack.org/wp-content/files/2013/04/9.jpg', description: 'background image')
 Image.create(image_type: backgroundImage1, image_url: 'http://eskipaper.com/images/minimalist-wallpaper-17.jpg', description: 'background image')
 Image.create(image_type: backgroundImage1, image_url: 'http://i.imgur.com/MIRCCsJ.jpg', description: 'background image')
-
-
+Image.create(image_type: backgroundImage1, image_url: 'http://i.imgur.com/Ni4FATj.png', description: 'background image')
+Image.create(image_type: backgroundImage1, image_url: 'http://www.magic4walls.com/wp-content/uploads/2014/05/cartoon-minimalist-wallpaper-art-vector-garfield-smile-yellow-background.jpg', description: 'background image')
 
 
 
