@@ -28,8 +28,8 @@ class ImageTypesController < ApplicationController
 
     respond_to do |format|
       if @image_type.save
-        format.html { redirect_to @image_type, notice: 'Image type was successfully created.' }
-        format.json { render :show, status: :created, location: @image_type }
+        format.html { redirect_to image_types_url, notice: 'Image type was successfully created.' }
+        format.json { head :no_content }
       else
         format.html { render :new }
         format.json { render json: @image_type.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class ImageTypesController < ApplicationController
   def update
     respond_to do |format|
       if @image_type.update(image_type_params)
-        format.html { redirect_to @image_type, notice: 'Image type was successfully updated.' }
-        format.json { render :show, status: :ok, location: @image_type }
+        format.html { redirect_to image_types_url, notice: 'Image type was successfully updated.' }
+        format.json { head :no_content }
       else
         format.html { render :edit }
         format.json { render json: @image_type.errors, status: :unprocessable_entity }

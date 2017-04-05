@@ -1,9 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @image_type.name %>
-</p>
-
-<%= link_to 'Edit', edit_image_type_path(@image_type) %> |
+<h1>Showing Image Type</h1>
 <%= link_to 'Back', image_types_path %>
+<hr />
+<dl class="row">
+  <dt class="col-sm-3">Name:</dt>
+  <dd class="col-sm-9"><%= @image_type.name %></dd>
+</dl>
+<hr />
+
+<%= link_to 'Edit', edit_image_type_path(@image_type), class: 'btn btn-primary' %>
