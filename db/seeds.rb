@@ -73,6 +73,13 @@ productImage1 = ImageType.create(name: 'Product')
 ActiveRecord::Base.connection.reset_pk_sequence!('Image')
 Image.delete_all
 Image.create(image_type: backgroundImage1, image_url: 'https://images3.alphacoders.com/621/621682.jpg', description: 'background image')
+Image.create(image_type: backgroundImage1, image_url: 'http://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/sources/everest-minimalist-wallpaper-blue.png', description: 'background image')
+Image.create(image_type: backgroundImage1, image_url: 'http://www.androidguys.com/wp-content/uploads/2016/05/Poly-Lakeside.jpg', description: 'background image')
+Image.create(image_type: backgroundImage1, image_url: 'http://i.imgur.com/3Zk4aNH.jpg', description: 'background image')
+Image.create(image_type: backgroundImage1, image_url: 'http://cdn-media-1.lifehack.org/wp-content/files/2013/04/94.jpg', description: 'background image')
+Image.create(image_type: backgroundImage1, image_url: 'http://cdn-media-1.lifehack.org/wp-content/files/2013/04/9.jpg', description: 'background image')
+Image.create(image_type: backgroundImage1, image_url: 'http://eskipaper.com/images/minimalist-wallpaper-17.jpg', description: 'background image')
+Image.create(image_type: backgroundImage1, image_url: 'http://i.imgur.com/MIRCCsJ.jpg', description: 'background image')
 
 
 

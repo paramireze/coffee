@@ -1,6 +1,6 @@
 <% content_for :before_nav do %>
     <div class="cover">
-      <div class="cover-image" id="backgroundImage"></div>
+      <div class="cover-image" style="background: url(<%= @image.first.image_url %>)"></div>
   <% end %>
   <% content_for :after_nav do %>
           <div class="container">

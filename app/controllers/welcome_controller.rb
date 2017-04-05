@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def home
+    @image = Image.random
     @purchases = Purchase.most_recent
     @users = User.all
     @stores = Store.all
