@@ -54,7 +54,7 @@ coffee = ItemType.create(name: 'Coffee', image_url: 'http://www.webstaurantstore
 ActiveRecord::Base.connection.reset_pk_sequence!('Item')
 Item.delete_all
 peruvian = Item.create(item_type: coffee, store: evp, brand: 'Peruvian', price: 15.00, description: 'A medium roast that has a nice balance in flavors. Smooth, dry finish with a hint of cinnamon. Organic & Fair Trade Bean' )
-ethopian_sidano = Item.create(item_type: coffee, store: evp, brand: 'Ethopian Sidano', price: 15.00, description: 'Sweet citruis aromatics and pleasing maple syrup-like body. The wild sweet lemon and floral tones round out into a smooth, clean finish.', image_url: 'https://sc01.alicdn.com/kf/HTB1BhUyMVXXXXaNaXXXq6xXFXXXV/Food-Packaging-Printing-Flat-Bottom-Resealable-coffee.jpg' )
+ethopian_sidano = Item.create(item_type: coffee, store: evp, brand: 'Ethopian Sidano', price: 15.00, description: 'Sweet citruis aromatics and pleasing maple syrup-like body. The wild sweet lemon and floral tones round out into a smooth, clean finish.' )
 ethiopianHarrier = Item.create(item_type: coffee, store: evp, brand: 'Ethopian Harrar', price: 15.00, description: 'A high-octane light roast! Very popular with our customers, the Ethiopian Harrar is aromatic with rich, complex flavor & a sweet long finish.', image_url: 'https://sc01.alicdn.com/kf/HTB1BhUyMVXXXXaNaXXXq6xXFXXXV/Food-Packaging-Printing-Flat-Bottom-Resealable-coffee.jpg' )
 congo           = Item.create(item_type: coffee, store: evp, brand: 'Congo', price: 15.00, description: 'Light roast coffee that has recently been selling at EVP' )
 tanzanianPeaberry = Item.create(item_type: coffee, store: evp, brand: 'Tanzanian Peaberry', price: 15.00, description: 'A high-octane light roast much sought after by our customers. Grown on the slopes of Mount Kilimanjaro, this coffee is sweetly acidic with wonderful aroma. Wine and fruit overtones.', image_url: 'http://cdn.shopify.com/s/files/1/0658/3597/products/indian-monsooned-malabar-2_large.jpg?v=1426559070' )
@@ -78,14 +78,15 @@ Buyer.create(purchase: elizabethCongoPurchase, user: elizabeth)
 Buyer.create(purchase: paulPeruvianPurchase, user: paul)
 Buyer.create(purchase: elizabethEthiopianHarrierPurchase, user: elizabeth)
 
+ActiveRecord::Base.connection.reset_pk_sequence!('Image')
+Image.delete_all
+
 ActiveRecord::Base.connection.reset_pk_sequence!('ImageType')
 ImageType.delete_all
 backgroundImage1 = ImageType.create(name: 'Background')
 avatarImage1 = ImageType.create(name: 'Avatar')
 productImage1 = ImageType.create(name: 'Product')
 
-ActiveRecord::Base.connection.reset_pk_sequence!('Image')
-Image.delete_all
 Image.create(image_type: backgroundImage1, image_url: 'https://images3.alphacoders.com/621/621682.jpg', description: 'background image')
 Image.create(image_type: backgroundImage1, image_url: 'http://icanbecreative.com/resources/files/articles/40-high-resolution-wallpapers-for-minimalist-lovers/sources/everest-minimalist-wallpaper-blue.png', description: 'background image')
 Image.create(image_type: backgroundImage1, image_url: 'http://www.androidguys.com/wp-content/uploads/2016/05/Poly-Lakeside.jpg', description: 'background image')
