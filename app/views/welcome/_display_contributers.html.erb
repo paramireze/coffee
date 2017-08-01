@@ -21,7 +21,11 @@
           </div>
           <div class="col-md-4">
             <h3 class="text-left"><%= user.name %></h3>
-            <p class="text-left"><%= user.description %></p>
+
+            <% user.quotes.each do |quote, index| %>
+            <%= quote.created_at.to_s(:custom_datetime) %>
+                <blockquote><%= quote.text %></blockquote>
+            <% end %>
           </div>
 
           <% if index.odd? %>

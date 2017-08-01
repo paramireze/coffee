@@ -7,6 +7,7 @@ class User < ApplicationRecord
   # mount_uploader :avatar, AvatarUploader
 
   has_many :buyers
+  has_many :quotes
   has_many :purchases, through: :buyers
 
   has_and_belongs_to_many :roles
