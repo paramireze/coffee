@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403015716) do
+ActiveRecord::Schema.define(version: 20170801194620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 20170403015716) do
     t.index ["item_id"], name: "index_purchases_on_item_id", using: :btree
   end
 
+  create_table "quotes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_quotes_on_user_id", using: :btree
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -109,4 +117,5 @@ ActiveRecord::Schema.define(version: 20170403015716) do
   add_foreign_key "buyers", "users"
   add_foreign_key "images", "image_types"
   add_foreign_key "purchases", "items"
+  add_foreign_key "quotes", "users"
 end
